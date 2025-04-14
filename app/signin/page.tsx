@@ -7,8 +7,11 @@ import { MainLayout } from '@/components/layouts';
 import { useApiRequest } from '@/hooks';
 import { signinUrl } from '@/consts/paths';
 import Toaster from '@/helpers/Toaster';
+import { useRouter } from 'next/navigation';
 
 const SigninPage = () => {
+  const router = useRouter();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -42,8 +45,15 @@ const SigninPage = () => {
   };
 
   useEffect(() => {
-    signinError && Toaster.error(signinError.message || 'Something went wrong!');
+    if (signinError) Toaster.error(signinError.message || 'Something went wrong!');
   }, [signinError]);
+
+  useEffect(() => {
+    if (signinResponse) {
+      Toaster.success(signinResponse?.data?.message);
+      router.push('/dashboard');
+    }
+  }, [signinResponse]);
 
   return (
     <MainLayout>
