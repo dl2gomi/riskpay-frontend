@@ -24,6 +24,9 @@ const SigninPage = () => {
     sendRequest: sendSigninRequest,
   } = useApiRequest({
     endpoint: signinUrl,
+    headers: {
+      Accept: 'application/json',
+    },
     method: 'POST',
     data: { email, password, rememberMe },
   });
