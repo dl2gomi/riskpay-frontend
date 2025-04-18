@@ -124,7 +124,7 @@ const Dashboard = () => {
             </div>
             <div className="mt-4 mb-4 pl-4 pr-2 lg:pl-10">
               <p className="text-[#777B84] font-semibold text-sm mb-2 truncate overflow-hidden whitespace-nowrap">
-                Average Succeed orders
+                Average Succeed Order
               </p>
               <div className="flex items-center space-x-3">
                 <h3 className="text-xl font-bold">{`${orderOverview?.averageSucceedOrder?.amount ?? 0}%`}</h3>
@@ -145,7 +145,7 @@ const Dashboard = () => {
           <div className="bg-white p-6 rounded-2xl">
             <h4 className="font-semibold mb-2 text-[#777B84] text-xl">Sales Overview</h4>
             <p className="text-sm text-[#BEBEBE] mb-4">Track your company daily volume</p>
-            <ResponsiveContainer width="100%" height={317}>
+            <ResponsiveContainer width="100%" height={320}>
               <AreaChart data={salesData}>
                 <defs>
                   <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
