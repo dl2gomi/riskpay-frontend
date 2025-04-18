@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, CartesianGrid } from 'recharts';
 import { DashLayout } from '@/components/layouts';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -8,7 +8,10 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import '@/assets/styles/dashboard.css';
 
-const CustomTooltip: React.FC<{ payload?: Array<any>; label?: string }> = ({ payload, label }) => {
+const CustomTooltip: React.FC<{ payload?: Array<{ payload: { value: number | string } }>; label?: string }> = ({
+  payload,
+  label,
+}) => {
   if (!payload || payload.length === 0) return null;
 
   const data = payload[0].payload; // Get the data from the tooltip
@@ -77,10 +80,6 @@ const Dashboard = () => {
       percent: 2,
     },
   }; // this needs to be fetched via api
-
-  useEffect(() => {
-    console.log((orderOverview?.gross?.delta ?? 0) < 0);
-  }, []);
 
   return (
     <DashLayout>
