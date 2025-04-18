@@ -145,7 +145,7 @@ const Dashboard = () => {
           <div className="bg-white p-6 rounded-2xl">
             <h4 className="font-semibold mb-2 text-[#777B84] text-xl">Sales Overview</h4>
             <p className="text-sm text-[#BEBEBE] mb-4">Track your company daily volume</p>
-            <ResponsiveContainer width="100%" height={316}>
+            <ResponsiveContainer width="100%" height={317}>
               <AreaChart data={salesData}>
                 <defs>
                   <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
@@ -209,7 +209,7 @@ const Dashboard = () => {
 
           {/* Account Status Section */}
           <div className="p-4 bg-white rounded-xl">
-            <h4 className="font-semibold text-[#090E18] mb-1">Account status</h4>
+            <h4 className="font-semibold text-[#090E18] mb-1 text-base">Account status</h4>
             <p className="text-sm text-[#BEBEBE] mb-4 truncate overflow-hidden whitespace-nowrap">
               Chargebacks, Paid / Failed order
             </p>
