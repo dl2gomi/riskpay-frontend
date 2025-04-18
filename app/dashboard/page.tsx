@@ -17,7 +17,7 @@ const CustomTooltip: React.FC<{ payload?: Array<{ payload: { value: number | str
   const data = payload[0].payload; // Get the data from the tooltip
   return (
     <div style={{ backgroundColor: 'black', color: 'white', padding: '10px', borderRadius: '5px' }}>
-      <p>US$ {data.value}</p>
+      <p className="text-sm">US$ {data.value}</p>
       <p className="text-xs">{label}</p>
     </div>
   );
@@ -91,14 +91,14 @@ const Dashboard = () => {
                 Gross Revenue
               </p>
               <div className="flex items-center space-x-3">
-                <h3 className="text-2xl font-bold">{`$${formatter.format(orderOverview?.gross?.amount ?? 0)}`}</h3>
+                <h3 className="text-xl font-bold">{`$${formatter.format(orderOverview?.gross?.amount ?? 0)}`}</h3>
                 {(orderOverview?.gross?.delta ?? 0) > 0 && (
-                  <p className="text-[#309147] text-sm bg-[#E9FFE1] px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-[#309147] text-xs bg-[#E9FFE1] px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▲ {orderOverview?.gross?.delta}%
                   </p>
                 )}
                 {(orderOverview?.gross?.delta ?? 0) < 0 && (
-                  <p className="text-red-500 text-sm bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-red-500 text-xs bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▼ {orderOverview?.gross?.delta}%
                   </p>
                 )}
@@ -109,14 +109,14 @@ const Dashboard = () => {
                 Paid Order
               </p>
               <div className="flex items-center space-x-3">
-                <h3 className="text-2xl font-bold">{`${orderOverview?.paidOrder?.amount ?? 0}`}</h3>
+                <h3 className="text-xl font-bold">{`${orderOverview?.paidOrder?.amount ?? 0}`}</h3>
                 {(orderOverview?.paidOrder?.delta ?? 0) > 0 && (
-                  <p className="text-[#309147] text-sm bg-[#E9FFE1] px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-[#309147] text-xs bg-[#E9FFE1] px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▲ {orderOverview?.paidOrder?.delta}%
                   </p>
                 )}
                 {(orderOverview?.paidOrder?.delta ?? 0) < 0 && (
-                  <p className="text-red-500 text-sm bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-red-500 text-xs bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▼ {orderOverview?.paidOrder?.delta}%
                   </p>
                 )}
@@ -127,14 +127,14 @@ const Dashboard = () => {
                 Average Succeed orders
               </p>
               <div className="flex items-center space-x-3">
-                <h3 className="text-2xl font-bold">{`${orderOverview?.averageSucceedOrder?.amount ?? 0}%`}</h3>
+                <h3 className="text-xl font-bold">{`${orderOverview?.averageSucceedOrder?.amount ?? 0}%`}</h3>
                 {(orderOverview?.averageSucceedOrder?.delta ?? 0) > 0 && (
-                  <p className="text-[#309147] text-sm bg-[#E9FFE1] px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-[#309147] text-xs bg-[#E9FFE1] px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▲ {orderOverview?.averageSucceedOrder?.delta}%
                   </p>
                 )}
                 {(orderOverview?.averageSucceedOrder?.delta ?? 0) < 0 && (
-                  <p className="text-red-500 text-sm bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-red-500 text-xs bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▼ {orderOverview?.averageSucceedOrder?.delta}%
                   </p>
                 )}
@@ -145,7 +145,7 @@ const Dashboard = () => {
           <div className="bg-white p-6 rounded-2xl">
             <h4 className="font-semibold mb-2 text-[#777B84] text-xl">Sales Overview</h4>
             <p className="text-sm text-[#BEBEBE] mb-4">Track your company daily volume</p>
-            <ResponsiveContainer width="100%" height={333}>
+            <ResponsiveContainer width="100%" height={316}>
               <AreaChart data={salesData}>
                 <defs>
                   <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
@@ -175,8 +175,8 @@ const Dashboard = () => {
             <div className="flex justify-between items-start">
               <div>
                 <h4 className="text-[#777B84] font-semibold my-1">Balance in USD</h4>
-                <p className="text-2xl font-semibold my-2">{`$${formatter.format(balanceData?.balance)}`}</p>
-                <p className="text-[#BEBEBE] my-1 truncate overflow-hidden whitespace-nowrap">
+                <p className="text-xl font-semibold my-2">{`$${formatter.format(balanceData?.balance)}`}</p>
+                <p className="text-[#BEBEBE] my-1 truncate overflow-hidden whitespace-nowrap text-sm">
                   Estimate of future transfers
                 </p>
               </div>
@@ -193,8 +193,8 @@ const Dashboard = () => {
             <div className="flex justify-between items-start">
               <div>
                 <h4 className="text-[#777B84] font-semibold my-1">Payout</h4>
-                <p className="text-2xl font-semibold my-2">{`$${formatter.format(balanceData?.payout)}`}</p>
-                <p className="text-[#BEBEBE] my-1 truncate overflow-hidden whitespace-nowrap">
+                <p className="text-xl font-semibold my-2">{`$${formatter.format(balanceData?.payout)}`}</p>
+                <p className="text-[#BEBEBE] my-1 truncate overflow-hidden whitespace-nowrap text-sm">
                   Expected on {balanceData?.payoutDate}
                 </p>
               </div>
