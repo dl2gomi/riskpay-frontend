@@ -219,12 +219,12 @@ const Dashboard = () => {
                   <CircularProgressbar
                     value={orderStatus?.chargeback?.percent ?? 0}
                     text={`${orderStatus?.chargeback?.percent ?? 0}%`}
-                    strokeWidth={14}
+                    strokeWidth={10}
                     styles={buildStyles({
                       pathColor: '#DE0707',
                       textColor: '#2E3033',
                       trailColor: '#FBF3F4',
-                      textSize: '28px',
+                      textSize: '20px',
                     })}
                   />
                   <style>
@@ -250,12 +250,12 @@ const Dashboard = () => {
                   <CircularProgressbar
                     value={orderStatus?.paid?.percent ?? 0}
                     text={`${orderStatus?.paid?.percent ?? 0}%`}
-                    strokeWidth={14}
+                    strokeWidth={10}
                     styles={buildStyles({
                       pathColor: '#03AD5A',
                       textColor: '#2E3033',
                       trailColor: '#E5FDE5',
-                      textSize: '28px',
+                      textSize: '20px',
                     })}
                   />
                   <style>
@@ -281,12 +281,12 @@ const Dashboard = () => {
                   <CircularProgressbar
                     value={orderStatus?.failed?.percent ?? 0}
                     text={`${orderStatus?.failed?.percent ?? 0}%`}
-                    strokeWidth={14}
+                    strokeWidth={10}
                     styles={buildStyles({
                       pathColor: '#DE0707',
                       textColor: '#2E3033',
                       trailColor: '#FBF3F4',
-                      textSize: '28px',
+                      textSize: '20px',
                     })}
                   />
                   <style>
