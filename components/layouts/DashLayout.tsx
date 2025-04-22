@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import { Bell, ChevronDown, ListFilter } from 'lucide-react';
+import { Bell, ChevronDown } from 'lucide-react';
 import { SidebarMerchant } from '../widgets';
 
 const DashLayout: React.FC<{ children: ReactNode; titleArea: ReactNode; tools?: ReactNode }> = ({
