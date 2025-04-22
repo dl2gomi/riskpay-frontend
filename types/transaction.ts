@@ -2,8 +2,8 @@ export type Transaction = {
   date: Date;
   id: string;
   card: 'mastercard' | 'visa';
-  store: string;
-  status: 'Succeeded' | 'Pending' | 'Failed' | 'Chargeback';
+  customer: string;
+  status: 'Succeeded' | 'Pending' | 'Failed' | 'Chargeback' | 'Refunded';
   amount: number;
 };
 

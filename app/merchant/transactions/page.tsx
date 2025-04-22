@@ -26,6 +26,7 @@ const statusStyles: Record<Transaction['status'], string> = {
   Pending: 'bg-yellow-100 text-yellow-700',
   Failed: 'bg-red-100 text-red-700',
   Chargeback: 'bg-pink-100 text-pink-700',
+  Refunded: 'bg-gray-200 text-gray-700',
 };
 
 const cardIcons: Record<Transaction['card'], string> = {
@@ -40,7 +41,9 @@ const formatter = new Intl.NumberFormat('en-US', {
 });
 
 const TransactionPage = () => {
-  const [statusFilter, setStatusFilter] = useState<'All' | 'Success' | 'Failed' | 'Pending' | 'Chargeback'>('All');
+  const [statusFilter, setStatusFilter] = useState<
+    'All' | 'Success' | 'Failed' | 'Pending' | 'Chargeback' | 'Refunded'
+  >('All');
   const [cardType, setCardType] = useState();
   const [dateFilter, setDateFilter] = useState();
   const [amountFilter, setAmountFilter] = useState();
@@ -81,7 +84,7 @@ const TransactionPage = () => {
     },
   });
 
-  const selectStatusFilter = (status: 'All' | 'Success' | 'Failed' | 'Pending' | 'Chargeback') => {
+  const selectStatusFilter = (status: 'All' | 'Success' | 'Failed' | 'Pending' | 'Chargeback' | 'Refunded') => {
     setStatusFilter(status);
   };
 
@@ -160,6 +163,14 @@ const TransactionPage = () => {
             >
               Chargeback
             </div>
+            <div
+              className={`${
+                statusFilter === 'Refunded' ? 'text-red-600' : 'cursor-pointer hover:text-gray-500'
+              } transition-colors duration-200 ease-in-out`}
+              onClick={() => selectStatusFilter('Refunded')}
+            >
+              Refunded
+            </div>
           </div>
           {/* <button className="flex items-center gap-2 bg-red-600 text-white px-3 py-1 text-sm rounded-full cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400">
             <Image src={excelIcon} alt="Export" className="h-4 w-4" />
@@ -217,6 +228,7 @@ const TransactionPage = () => {
                   />
                 </div>
               </th>
+              <th className="p-2 text-left">Customer</th>
               <th
                 className="p-2 text-left cursor-pointer"
                 onClick={() =>
@@ -231,7 +243,6 @@ const TransactionPage = () => {
                   />
                 </div>
               </th>
-              <th className="p-2 text-left">Store</th>
               <th
                 className="p-2 text-left cursor-pointer"
                 onClick={() =>
@@ -294,10 +305,10 @@ const TransactionPage = () => {
                     })}
                   </td>
                   <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.id}</td>
+                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.customer}</td>
                   <td className="p-2 border-b border-b-gray-200">
                     <Image src={cardIcons[t.card]} alt={t.card} className="h-5 inline" />
                   </td>
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.store}</td>
                   <td className="p-2 border-b border-b-gray-200">
                     <span className={`px-2 py-1 rounded text-xs font-medium ${statusStyles[t.status]} rounded-full`}>
                       {t.status}
