@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     if (pathname) {
-      const subpath = pathname.substring(pathname.indexOf('/dashboard') + '/dashboard'.length);
+      const subpath = pathname.substring(pathname.indexOf('/merchant') + '/merchant'.length);
 
       if (subpath.startsWith('/transactions')) {
         setCurrentTab('transactions');
@@ -49,7 +49,7 @@ const Sidebar = () => {
         <div className="space-y-1">
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'dashboard' ? 'bg-red-100' : ''}`}
-            href="/dashboard"
+            href="/merchant"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
               <Image src={dashIcon} alt="Dashboard Icon" width={16} /> Dashboard
@@ -57,7 +57,7 @@ const Sidebar = () => {
           </Link>
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'transactions' ? 'bg-red-100' : ''}`}
-            href="/dashboard/transactions"
+            href="/merchant/transactions"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
               <Image src={transIcon} alt="Transactions Icon" width={16} /> Transactions
@@ -65,7 +65,7 @@ const Sidebar = () => {
           </Link>
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'payments' ? 'bg-red-100' : ''}`}
-            href="/dashboard/payments"
+            href="/merchant/payments"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
               <Image src={payLinkIcon} alt="Payment Icon" height={16} /> Payment Links
@@ -73,7 +73,7 @@ const Sidebar = () => {
           </Link>
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'integration' ? 'bg-red-100' : ''}`}
-            href="/dashboard/integration"
+            href="/merchant/integration"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
               <Image src={integIcon} alt="Integrations Icon" height={16} /> Integrations
@@ -81,7 +81,7 @@ const Sidebar = () => {
           </Link>
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'balances' ? 'bg-red-100' : ''}`}
-            href="/dashboard/balances"
+            href="/merchant/balances"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
               <Image src={balanceIcon} alt="Balance Icon" height={16} /> Balance and Payouts
@@ -91,7 +91,7 @@ const Sidebar = () => {
         <div className="mt-auto pt-6">
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'settings' ? 'bg-red-100' : ''}`}
-            href="/dashboard/settings"
+            href="/merchant/settings"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
               <Image src={settingsIcon} alt="Settings Icon" height={16} /> Settings

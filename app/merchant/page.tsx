@@ -3,6 +3,7 @@
 import React from 'react';
 import { XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, CartesianGrid } from 'recharts';
 import { DashLayout } from '@/components/layouts';
+import { ListFilter } from 'lucide-react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 import 'react-circular-progressbar/dist/styles.css';
@@ -81,8 +82,33 @@ const Dashboard = () => {
     },
   }; // this needs to be fetched via api
 
+  const userInfo = {
+    name: 'Nur Hasan',
+    role: 'Merchant',
+  }; // this needs to be changed using local stroage interacted with backend
+
   return (
-    <DashLayout>
+    <DashLayout
+      titleArea={
+        <>
+          <h2 className="text-xl font-semibold">Hello, {userInfo.name}</h2>
+          <p className="text-sm text-gray-500">
+            {new Intl.DateTimeFormat('en-US', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: '2-digit',
+            }).format(new Date())}
+          </p>
+        </>
+      }
+      tools={
+        <button className="inline-flex items-center gap-2 border border-gray-400 px-3 py-1.5 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100">
+          <ListFilter className="w-4 h-4 text-indigo-900" />
+          Last 7 Days
+        </button>
+      }
+    >
       <div className="grid grid-cols-3 gap-6">
         <div className="col-span-3 lg:col-span-2 space-y-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 bg-white p-4 rounded-2xl">
@@ -145,7 +171,7 @@ const Dashboard = () => {
           <div className="bg-white p-6 rounded-2xl">
             <h4 className="font-semibold mb-2 text-[#777B84] text-xl">Sales Overview</h4>
             <p className="text-sm text-[#BEBEBE] mb-4">Track your company daily volume</p>
-            <ResponsiveContainer width="100%" height={320}>
+            <ResponsiveContainer width="100%" height={321}>
               <AreaChart data={salesData}>
                 <defs>
                   <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Riskpay Test',
+  title: 'Riskpay',
   description: 'A simple and faster payment gateway for credit cards, cryptocurrency, and bank transfers.',
 };
 

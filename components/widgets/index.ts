@@ -1,2 +1,3 @@
 export { default as MainNavbar } from './MainNavbar';
-export { default as Sidebar } from './Sidebar';
+export { default as SidebarMerchant } from './SidebarMerchant';
+export { default as Pagination } from './Pagination';
