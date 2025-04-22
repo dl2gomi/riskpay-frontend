@@ -161,10 +161,10 @@ const TransactionPage = () => {
               Chargeback
             </div>
           </div>
-          <button className="flex items-center gap-2 bg-red-600 text-white px-3 py-1 text-sm rounded-full cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400">
+          {/* <button className="flex items-center gap-2 bg-red-600 text-white px-3 py-1 text-sm rounded-full cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400">
             <Image src={excelIcon} alt="Export" className="h-4 w-4" />
             Export
-          </button>
+          </button> */}
         </div>
 
         <div className="flex gap-4 flex-wrap text-sm mb-3 px-2">

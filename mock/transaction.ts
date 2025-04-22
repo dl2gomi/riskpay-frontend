@@ -22,7 +22,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Succeeded',
-      amount: 145.25,
+      amount: 1435.25,
     },
     {
       date: new Date(),
