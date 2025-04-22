@@ -4,7 +4,7 @@ export type Transaction = {
   card: 'mastercard' | 'visa';
   store: string;
   status: 'Succeeded' | 'Pending' | 'Failed' | 'Chargeback';
-  amount: string;
+  amount: number;
 };
 
 export type TransactionData = {

@@ -14,7 +14,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Succeeded',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -22,7 +22,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Succeeded',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -30,7 +30,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Succeeded',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -38,7 +38,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Pending',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -46,7 +46,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Succeeded',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -54,7 +54,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Pending',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -62,7 +62,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Succeeded',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -70,7 +70,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Failed',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -78,7 +78,7 @@ export const txDataMock: TransactionData = {
       card: 'visa',
       store: 'Demo Mart',
       status: 'Succeeded',
-      amount: '$145.25',
+      amount: 145.25,
     },
     {
       date: new Date(),
@@ -86,7 +86,7 @@ export const txDataMock: TransactionData = {
       card: 'mastercard',
       store: 'Demo Mart',
       status: 'Chargeback',
-      amount: '$145.25',
+      amount: 145.25,
     },
   ],
 };

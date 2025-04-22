@@ -3,7 +3,6 @@
 import { DashLayout } from '@/components/layouts';
 import { MoreHorizontal } from 'lucide-react';
 
-import excelIcon from '@/assets/images/icons/excel-export.svg';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -17,11 +16,36 @@ import Toaster from '@/helpers/Toaster';
 import { Transaction, TransactionData } from '@/types';
 import { txDataMock } from '@/mock';
 
+import excelIcon from '@/assets/images/icons/excel-export.svg';
+import orderNormalIcon from '@/assets/images/icons/order-normal.svg';
+import orderAscIcon from '@/assets/images/icons/order-asc.svg';
+import orderDescIcon from '@/assets/images/icons/order-desc.svg';
+
+const statusStyles: Record<Transaction['status'], string> = {
+  Succeeded: 'bg-green-100 text-green-700',
+  Pending: 'bg-yellow-100 text-yellow-700',
+  Failed: 'bg-red-100 text-red-700',
+  Chargeback: 'bg-pink-100 text-pink-700',
+};
+
+const cardIcons: Record<Transaction['card'], string> = {
+  mastercard: mastercardImage,
+  visa: visaImage,
+};
+
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'decimal',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
 const TransactionPage = () => {
   const [statusFilter, setStatusFilter] = useState<'All' | 'Success' | 'Failed' | 'Pending' | 'Chargeback'>('All');
   const [cardType, setCardType] = useState();
   const [dateFilter, setDateFilter] = useState();
   const [amountFilter, setAmountFilter] = useState();
+  const [orderField, setOrderField] = useState<'createdAt' | 'txid' | 'card' | 'status' | 'amount'>('createdAt');
+  const [order, setOrder] = useState<'asc' | 'desc'>('desc');
   const [currentPage, setCurrentPage] = useState(1);
   const [txData, setTxData] = useState<TransactionData>({
     pagination: {
@@ -31,12 +55,6 @@ const TransactionPage = () => {
       currentPage: 1,
     },
     transactions: [] as Transaction[],
-  });
-
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'decimal',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
   });
 
   const {
@@ -58,20 +76,10 @@ const TransactionPage = () => {
       amount: amountFilter,
       page: currentPage,
       limit: ITEMS_PER_PAGE,
+      orderField,
+      order,
     },
   });
-
-  const statusStyles: Record<Transaction['status'], string> = {
-    Succeeded: 'bg-green-100 text-green-700',
-    Pending: 'bg-yellow-100 text-yellow-700',
-    Failed: 'bg-red-100 text-red-700',
-    Chargeback: 'bg-pink-100 text-pink-700',
-  };
-
-  const cardIcons: Record<Transaction['card'], string> = {
-    mastercard: mastercardImage,
-    visa: visaImage,
-  };
 
   const selectStatusFilter = (status: 'All' | 'Success' | 'Failed' | 'Pending' | 'Chargeback') => {
     setStatusFilter(status);
@@ -79,7 +87,7 @@ const TransactionPage = () => {
 
   useEffect(() => {
     sendTxRequest();
-  }, [statusFilter, cardType, dateFilter, amountFilter, currentPage, ITEMS_PER_PAGE]);
+  }, [statusFilter, cardType, dateFilter, amountFilter, currentPage, ITEMS_PER_PAGE, order, orderField]);
 
   useEffect(() => {
     if (txResponse) {
@@ -181,12 +189,77 @@ const TransactionPage = () => {
               <th className="text-left w-8">
                 <input type="checkbox" className="align-middle" />
               </th>
-              <th className="p-2 text-left">Date/Time</th>
-              <th className="p-2 text-left">Transaction ID</th>
-              <th className="p-2 text-left">Card Type</th>
+              <th
+                className="p-2 text-left cursor-pointer"
+                onClick={() =>
+                  orderField !== 'createdAt' ? setOrderField('createdAt') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                }
+              >
+                <div className="flex items-center">
+                  <span>Date/Time</span>
+                  <Image
+                    src={orderField !== 'createdAt' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                    alt="order"
+                  />
+                </div>
+              </th>
+              <th
+                className="p-2 text-left cursor-pointer"
+                onClick={() =>
+                  orderField !== 'txid' ? setOrderField('txid') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                }
+              >
+                <div className="flex items-center">
+                  <span>Transaction ID</span>
+                  <Image
+                    src={orderField !== 'txid' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                    alt="order"
+                  />
+                </div>
+              </th>
+              <th
+                className="p-2 text-left cursor-pointer"
+                onClick={() =>
+                  orderField !== 'card' ? setOrderField('card') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                }
+              >
+                <div className="flex items-center">
+                  <span>Card Type</span>
+                  <Image
+                    src={orderField !== 'card' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                    alt="order"
+                  />
+                </div>
+              </th>
               <th className="p-2 text-left">Store</th>
-              <th className="p-2 text-left">Status</th>
-              <th className="p-2 text-left">Amount</th>
+              <th
+                className="p-2 text-left cursor-pointer"
+                onClick={() =>
+                  orderField !== 'status' ? setOrderField('status') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                }
+              >
+                <div className="flex items-center">
+                  <span>Status</span>
+                  <Image
+                    src={orderField !== 'status' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                    alt="order"
+                  />
+                </div>
+              </th>
+              <th
+                className="p-2 text-left cursor-pointer"
+                onClick={() =>
+                  orderField !== 'amount' ? setOrderField('amount') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                }
+              >
+                <div className="flex items-center">
+                  <span>Amount</span>
+                  <Image
+                    src={orderField !== 'amount' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                    alt="order"
+                  />
+                </div>
+              </th>
               <th className="p-2 text-left"></th>
             </tr>
           </thead>
@@ -230,7 +303,7 @@ const TransactionPage = () => {
                       {t.status}
                     </span>
                   </td>
-                  <td className="p-2 font-semibold border-b border-b-gray-200">{t.amount}</td>
+                  <td className="p-2 font-semibold border-b border-b-gray-200">{`$${formatter.format(t.amount)}`}</td>
                   <td className="p-2 text-gray-500 border-b border-b-gray-200">
                     <button className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
                       <MoreHorizontal className="h-4 w-4" />
