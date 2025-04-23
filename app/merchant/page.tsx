@@ -76,7 +76,7 @@ const Dashboard = () => {
       amount: 74,
       percent: 35,
     },
-    failed: {
+    refunded: {
       amount: 4,
       percent: 2,
     },
@@ -243,37 +243,6 @@ const Dashboard = () => {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16">
                   <CircularProgressbar
-                    value={orderStatus?.chargeback?.percent ?? 0}
-                    text={`${orderStatus?.chargeback?.percent ?? 0}%`}
-                    strokeWidth={10}
-                    styles={buildStyles({
-                      pathColor: '#DE0707',
-                      textColor: '#2E3033',
-                      trailColor: '#FBF3F4',
-                      textSize: '20px',
-                    })}
-                  />
-                  <style>
-                    {`
-                      .CircularProgressbar-text {
-                        font-weight: 600;
-                        color: #090E18;
-                      }
-                    `}
-                  </style>
-                </div>
-                <div>
-                  <p className="font-semibold text-base text-[#090E18] truncate overflow-hidden whitespace-nowrap">
-                    Chargebacks
-                  </p>
-                  <p className="text-sm text-[#BEBEBE] truncate overflow-hidden whitespace-nowrap">
-                    {orderStatus?.chargeback?.amount ?? 0} in this period
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16">
-                  <CircularProgressbar
                     value={orderStatus?.paid?.percent ?? 0}
                     text={`${orderStatus?.paid?.percent ?? 0}%`}
                     strokeWidth={10}
@@ -305,8 +274,8 @@ const Dashboard = () => {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16">
                   <CircularProgressbar
-                    value={orderStatus?.failed?.percent ?? 0}
-                    text={`${orderStatus?.failed?.percent ?? 0}%`}
+                    value={orderStatus?.chargeback?.percent ?? 0}
+                    text={`${orderStatus?.chargeback?.percent ?? 0}%`}
                     strokeWidth={10}
                     styles={buildStyles({
                       pathColor: '#DE0707',
@@ -326,10 +295,41 @@ const Dashboard = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-base text-[#090E18] truncate overflow-hidden whitespace-nowrap">
-                    Failed Orders
+                    Chargebacks
                   </p>
                   <p className="text-sm text-[#BEBEBE] truncate overflow-hidden whitespace-nowrap">
-                    {orderStatus?.failed?.amount ?? 0} in this period
+                    {orderStatus?.chargeback?.amount ?? 0} in this period
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16">
+                  <CircularProgressbar
+                    value={orderStatus?.refunded?.percent ?? 0}
+                    text={`${orderStatus?.refunded?.percent ?? 0}%`}
+                    strokeWidth={10}
+                    styles={buildStyles({
+                      pathColor: '#808080',
+                      textColor: '#2E3033',
+                      trailColor: '#EFEFEF',
+                      textSize: '20px',
+                    })}
+                  />
+                  <style>
+                    {`
+                      .CircularProgressbar-text {
+                        font-weight: 600;
+                        color: #090E18;
+                      }
+                    `}
+                  </style>
+                </div>
+                <div>
+                  <p className="font-semibold text-base text-[#090E18] truncate overflow-hidden whitespace-nowrap">
+                    Refunded Orders
+                  </p>
+                  <p className="text-sm text-[#BEBEBE] truncate overflow-hidden whitespace-nowrap">
+                    {orderStatus?.refunded?.amount ?? 0} in this period
                   </p>
                 </div>
               </div>

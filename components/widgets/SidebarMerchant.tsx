@@ -65,15 +65,15 @@ const Sidebar = () => {
           </Link>
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'payments' ? 'bg-red-100' : ''}`}
-            href="/merchant/payments"
+            href="/merchant/products"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
-              <Image src={payLinkIcon} alt="Payment Icon" height={16} /> Payment Links
+              <Image src={payLinkIcon} alt="Payment Icon" height={16} /> Products
             </div>
           </Link>
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'integration' ? 'bg-red-100' : ''}`}
-            href="/merchant/integration"
+            href="/merchant/integrations"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
               <Image src={integIcon} alt="Integrations Icon" height={16} /> Integrations
@@ -81,10 +81,10 @@ const Sidebar = () => {
           </Link>
           <Link
             className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'balances' ? 'bg-red-100' : ''}`}
-            href="/merchant/balances"
+            href="/merchant/finance"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
-              <Image src={balanceIcon} alt="Balance Icon" height={16} /> Balance and Payouts
+              <Image src={balanceIcon} alt="Balance Icon" height={16} /> Finance
             </div>
           </Link>
         </div>

@@ -82,14 +82,18 @@ const IntegrationPage = () => {
               {group.items.map((item) => (
                 <div
                   key={item.name}
-                  className="p-4 border border-gray-100 rounded-lg transition cursor-pointer hover:bg-gray-100"
+                  className="flex flex-col p-4 border border-gray-100 rounded-lg transition cursor-pointer hover:bg-gray-100"
                 >
                   <Image src={item.icon} alt={item.name} width={48} height={48} className="mb-3" />
-                  <h3 className="font-bold text-sm text-gray-800">{item.name}</h3>
-                  <p className="text-xs text-gray-500 mb-3 mt-1">{item.description}</p>
-                  <button className="text-red-500 text-sm font-semibold flex items-center gap-1 cursor-pointer">
-                    Connect Now <span>→</span>
-                  </button>
+                  <div className="flex flex-col justify-between flex-1">
+                    <div>
+                      <h3 className="font-bold text-sm text-gray-800">{item.name}</h3>
+                      <p className="text-xs text-gray-500 mb-3 mt-1">{item.description}</p>
+                    </div>
+                    <button className="text-red-500 text-sm font-semibold flex items-center gap-1 cursor-pointer">
+                      Connect Now <span>→</span>
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
