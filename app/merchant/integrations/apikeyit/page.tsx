@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Switch } from '@headlessui/react';
 import { InfoIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { DashLayout } from '@/components/layouts';
 
 import fileCopyIcon from '@/assets/images/icons/file-copy-2-fill.svg';
@@ -13,9 +13,15 @@ import eyeFillIcon from '@/assets/images/icons/eye-fill.svg';
 import arrowRightIcon from '@/assets/images/icons/arrow-right-line.svg';
 
 const ApiKeyIntegrationPage = () => {
+  const pathname = usePathname();
+
   const [viewingTestData, setViewingTestData] = useState(true);
-  const searchParams = useSearchParams();
-  const title = searchParams.get('title');
+  const [title, setTitle] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setTitle(params.get('title'));
+  }, [pathname]);
 
   return (
     <DashLayout
@@ -32,7 +38,7 @@ const ApiKeyIntegrationPage = () => {
           </Link>
         </div>
         <div className="flex items-center justify-between">
-          <div className="text-base font-semibold">{title} API Integration Keys</div>
+          <div className="text-base font-semibold">{title ?? ''} API Integration Keys</div>
           <Link
             href="/merchant/help"
             className="flex items-center gap-1 text-sm text-[#DE0707] font-medium cursor-pointer"
