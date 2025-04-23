@@ -20,7 +20,7 @@ const DashLayout: React.FC<{ children: ReactNode; titleArea: ReactNode; tools?: 
       {/* Sidebar */}
       <SidebarMerchant />
       {/* Main Content */}
-      <main className="flex-1 p-8 space-y-6">
+      <main className="flex-1 p-8 space-y-6 ml-64">
         <div className="flex justify-between items-start">
           <div>{titleArea}</div>
           <div className="flex items-center gap-4">

@@ -39,7 +39,7 @@ const Sidebar = () => {
   }, [pathname]);
 
   return (
-    <aside className="w-64 bg-white p-4 flex flex-col">
+    <aside className="fixed top-0 left-0 h-screen w-64 bg-white p-4 flex flex-col z-50">
       <div className="h-24 px-4 py-3">
         <Link href="/">
           <Image alt="RiskPay" src={logoImg} className="h-10 w-auto" />
@@ -95,14 +95,6 @@ const Sidebar = () => {
           >
             <div className="flex items-center gap-3 text-sm font-medium">
               <Image src={settingsIcon} alt="Settings Icon" height={16} /> Settings
-            </div>
-          </Link>
-          <Link
-            className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'settings' ? 'bg-red-100' : ''}`}
-            href="/"
-          >
-            <div className="flex items-center gap-3 text-sm font-medium">
-              <Image src={logoutIcon} alt="Logout Icon" height={16} /> Log Out
             </div>
           </Link>
         </div>
