@@ -326,7 +326,7 @@ const Dashboard = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-base text-[#090E18] truncate overflow-hidden whitespace-nowrap">
-                    Refunded Orders
+                    Refunded
                   </p>
                   <p className="text-sm text-[#BEBEBE] truncate overflow-hidden whitespace-nowrap">
                     {orderStatus?.refunded?.amount ?? 0} in this period
