@@ -1,5 +1,8 @@
+'use client';
+
 import { DashLayout } from '@/components/layouts';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const integrations = [
   {
@@ -66,6 +69,8 @@ const integrations = [
 ];
 
 const IntegrationPage = () => {
+  const router = useRouter();
+
   return (
     <DashLayout
       titleArea={
@@ -83,6 +88,12 @@ const IntegrationPage = () => {
                 <div
                   key={item.name}
                   className="flex flex-col p-4 border border-gray-100 rounded-lg transition cursor-pointer hover:bg-gray-100"
+                  onClick={() => {
+                    if (group.section === 'Store Platforms')
+                      router.push(`/merchant/integrations/apikeyit?title=${item.name}`);
+                    else if (item.name === 'API Integration')
+                      router.push(`/merchant/integrations/apikeyit?title=Custom`);
+                  }}
                 >
                   <Image src={item.icon} alt={item.name} width={48} height={48} className="mb-3" />
                   <div className="flex flex-col justify-between flex-1">
