@@ -129,9 +129,6 @@ const Dashboard = () => {
                   </p>
                 )}
               </div>
-              <p className="text-[#777B84] text-xs my-2 truncate overflow-hidden whitespace-nowrap">
-                Total Earnings Before Costs
-              </p>
             </div>
             <div className="mt-4 mb-4 pl-4 pr-2 lg:pl-10 border-r-none lg:border-r border-gray-200">
               <p className="text-[#777B84] font-semibold text-sm mb-2 truncate overflow-hidden whitespace-nowrap">
@@ -150,13 +147,10 @@ const Dashboard = () => {
                   </p>
                 )}
               </div>
-              <p className="text-[#777B84] text-xs my-2 truncate overflow-hidden whitespace-nowrap">
-                Successfully Completed Payment
-              </p>
             </div>
             <div className="mt-4 mb-4 pl-4 pr-2 lg:pl-10">
               <p className="text-[#777B84] font-semibold text-sm mb-2 truncate overflow-hidden whitespace-nowrap">
-                Average Succeed Order
+                Card Acceptance
               </p>
               <div className="flex items-center space-x-3">
                 <h3 className="text-xl font-bold">{`${orderOverview?.averageSucceedOrder?.amount ?? 0}%`}</h3>
@@ -171,16 +165,13 @@ const Dashboard = () => {
                   </p>
                 )}
               </div>
-              <p className="text-[#777B84] text-xs truncate overflow-hidden whitespace-nowrap my-2">
-                Success Order Volume
-              </p>
             </div>
           </div>
           {/* Sale Overview*/}
           <div className="bg-white p-6 rounded-2xl">
             <h4 className="font-semibold mb-2 text-[#777B84] text-xl">Sales Overview</h4>
             <p className="text-sm text-[#BEBEBE] mb-4">Track your company daily volume</p>
-            <ResponsiveContainer width="100%" height={321}>
+            <ResponsiveContainer width="100%" height={338}>
               <AreaChart data={salesData}>
                 <defs>
                   <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
@@ -212,7 +203,7 @@ const Dashboard = () => {
                 <h4 className="text-[#777B84] font-semibold my-1">Total Balance</h4>
                 <p className="text-xl font-semibold my-2">{`$${formatter.format(balanceData?.balance)}`}</p>
                 <p className="text-[#BEBEBE] my-1 truncate overflow-hidden whitespace-nowrap text-sm">
-                  Estimate of future transfers
+                  Net amount to be available soon
                 </p>
               </div>
               <a
@@ -230,7 +221,7 @@ const Dashboard = () => {
                 <h4 className="text-[#777B84] font-semibold my-1">Available Balance</h4>
                 <p className="text-xl font-semibold my-2">{`$${formatter.format(balanceData?.payout)}`}</p>
                 <p className="text-[#BEBEBE] my-1 truncate overflow-hidden whitespace-nowrap text-sm">
-                  Expected on {balanceData?.payoutDate}
+                  Total amount available for withdrawal
                 </p>
               </div>
               <a
