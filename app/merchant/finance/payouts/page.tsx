@@ -79,7 +79,7 @@ const PayoutPage = () => {
         </div>
       )}
       {!payoutLoading && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
           <div className="lg:col-span-7 space-y-5">
             <div className="p-6 bg-white rounded-lg space-y-1">
               <div className="flex items-center justify-between pb-2">

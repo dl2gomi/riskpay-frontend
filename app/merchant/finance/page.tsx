@@ -1,12 +1,13 @@
 'use client';
 
 import { DashLayout } from '@/components/layouts';
-import { ListFilter } from 'lucide-react';
+import { CheckCircle, ChevronDownIcon, ListFilter } from 'lucide-react';
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { MenuButton, MenuItem, MenuItems, Menu } from '@headlessui/react';
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { BalanceCard, Pagination } from '@/components/widgets';
 import { ITEMS_PER_PAGE } from '@/consts/vars';
 import { useApiRequest } from '@/hooks';
@@ -14,11 +15,13 @@ import { payoutsUrl } from '@/consts/paths';
 import Toaster from '@/helpers/Toaster';
 import { payoutDataMock } from '@/mock';
 import { Payout, PayoutData } from '@/types/payout';
+import { useRouter } from 'next/navigation';
 
 import walletIcon from '@/assets/images/icons/walletIcon.svg';
 import chartIcon from '@/assets/images/icons/chartIcon.svg';
 import bagIcon from '@/assets/images/icons/bagIcon.svg';
-import { useRouter } from 'next/navigation';
+import balanceIcon from '@/assets/images/icons/balance1.svg';
+import Image from 'next/image';
 
 const statusStyles: Record<Payout['status'], string> = {
   Approved: 'bg-green-100 text-green-700',
@@ -34,6 +37,17 @@ const formatter = new Intl.NumberFormat('en-US', {
 
 const periods = [0, 7, 15, 30];
 
+const withdrawMethods = [
+  {
+    type: 'bank',
+    name: 'Bank Account',
+  },
+  {
+    type: 'crypto',
+    name: 'Crypto Wallet',
+  },
+];
+
 const FinancePage = () => {
   const router = useRouter();
 
@@ -48,6 +62,13 @@ const FinancePage = () => {
     },
     data: [] as Payout[],
   });
+
+  const [showWithdrawModal, setShowWithdrawModal] = useState(false);
+  const [showOTPModal, setShowOTPModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [withdrawMethod, setWithdrawMethod] = useState('');
+  const [withdrawAmount, setWithdrawAmount] = useState('');
+  const [otp, setOTP] = useState('');
 
   const {
     response: payoutResponse,
@@ -103,12 +124,12 @@ const FinancePage = () => {
           >
             Payout Accounts
           </Link>
-          <Link
-            href="/merchant/finance/withdraw"
+          <button
             className="rounded-full bg-red-600 hover:bg-red-500 cursor-pointer text-sm px-3 py-1.5 text-white transition"
+            onClick={() => setShowWithdrawModal(true)}
           >
             Withdraw
-          </Link>
+          </button>
         </>
       }
     >
@@ -246,6 +267,177 @@ const FinancePage = () => {
           />
         </div>
       </div>
+      {showWithdrawModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#0008]"
+          onClick={() => setShowWithdrawModal(false)}
+        >
+          <div
+            className="bg-white p-6 rounded-lg w-full max-w-xl space-y-4"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <div className="flex justify-between items-center border-b border-gray-200 pb-4">
+              <h2 className="text-lg font-semibold">Withdraw your amount</h2>
+              <span
+                className="flex items-center justify-center w-6 h-6 rounded-full text-2xl hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer"
+                onClick={() => setShowWithdrawModal(false)}
+              >
+                &times;
+              </span>
+            </div>
+            <div className="flex justify-between items-center border-b-4 border-red-600 py-1">
+              <div className="flex items-center text-sm gap-2">
+                <Image src={balanceIcon} alt="Balance" className="w-5 h-5" />
+                <span>Available Balance</span>
+              </div>
+              <div className="flex items-center font-semibold text-sm">US$ 45,445.00</div>
+            </div>
+            <div className="max-w-xl w-full space-y-6">
+              <div>
+                <label className="block text-sm mb-1">Withdraw Method</label>
+                <div className="w-full">
+                  <Listbox value={withdrawMethod} onChange={setWithdrawMethod}>
+                    <div className="relative">
+                      <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                        {withdrawMethods.find((e) => e.type === withdrawMethod)?.name ||
+                          'Please select your withdraw method'}
+                        <ChevronDownIcon className="w-4 h-4 text-gray-400" />
+                      </ListboxButton>
+                      <ListboxOptions className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-gray-300 focus:outline-none z-10">
+                        {withdrawMethods.map((e, i) => (
+                          <ListboxOption
+                            value={e.type}
+                            key={i}
+                            className={({ active }) =>
+                              `cursor-pointer select-none px-4 py-2 ${
+                                active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              }`
+                            }
+                          >
+                            {e.name}
+                          </ListboxOption>
+                        ))}
+                      </ListboxOptions>
+                    </div>
+                  </Listbox>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm mb-1">Amount</label>
+                <input
+                  type="text"
+                  placeholder="Enter Amount"
+                  className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  value={withdrawAmount}
+                  onChange={(e) => setWithdrawAmount(e.target.value)}
+                />
+              </div>
+              <div className="flex items-center text-gray-500 text-sm">
+                After confirm, you concern you are requesting to deposit that amount to this bank account/wallet
+              </div>
+              <div className="grid grid-cols-2 gap-4 pt-6">
+                <button className="bg-red-50 text-red-600 font-semibold py-2 rounded-md hover:bg-red-100  transition cursor-pointer">
+                  Cancel
+                </button>
+                <button
+                  className="bg-red-600 text-white font-semibold py-2 rounded-md hover:bg-red-500 transition cursor-pointer"
+                  onClick={() => {
+                    // needs to be changed in integration with backend
+                    setShowWithdrawModal(false);
+                    setShowOTPModal(true);
+                  }}
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {showOTPModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#0008]"
+          onKeyDown={async (e) => {
+            if (showOTPModal) {
+              if ((e.ctrlKey || e.metaKey) && e.key === 'v') {
+                const text = await navigator.clipboard.readText();
+                setOTP(text);
+              }
+            }
+          }}
+        >
+          <div className="bg-white p-6 rounded-lg w-full max-w-md space-y-4">
+            <div className="flex text-center items-center pb-4 font-semibold text-xl">
+              Sent a verification code on your registered email
+            </div>
+            <div className="flex items-center justify-center text-center text-gray-500 text-sm">
+              Please enter your 6-digit authentication code from email
+            </div>
+            <div className="max-w-xl w-full space-y-4">
+              <div className="flex items-center justify-center text-center font-semibold text-gray-900 text-xl">
+                OTP
+              </div>
+              <div className="flex gap-2 justify-center items-center">
+                {Array.from({ length: 6 }, (_, i) => i).map((_, i) => (
+                  <input
+                    readOnly
+                    type="text"
+                    key={i}
+                    className="border border-gray-400 rounded-md p-2 w-12 h-12 text-xl font-semibold focus:outline-none focus:ring-2 focus:ring-red-500 text-center"
+                    value={otp[i] ?? ''}
+                  />
+                ))}
+              </div>
+              <div className="flex items-center justify-center text-center text-green-400 text-xs">
+                You can copy OTP code from your email to any inputs in the above.
+              </div>
+              <div className="grid grid-cols-2 gap-4 pt-6">
+                <button className="bg-red-50 text-red-600 font-semibold py-2 rounded-md hover:bg-red-100  transition cursor-pointer">
+                  Back
+                </button>
+                <button
+                  className="bg-red-600 text-white font-semibold py-2 rounded-md hover:bg-red-500 transition cursor-pointer"
+                  onClick={() => {
+                    // needs to be changed in integration with backend
+                    setShowSuccessModal(true);
+                    setShowOTPModal(false);
+                  }}
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0008]">
+          <div className="bg-white p-6 rounded-lg w-full max-w-md space-y-4">
+            <div className="flex text-center justify-center items-center pt-4 font-semibold text-xl">
+              <CheckCircle className="text-green-600 text-lg font-bold" strokeWidth={3} />
+            </div>
+            <div className="flex text-center items-center pb-4 font-semibold text-xl">
+              You have successfully withdrawn your balance
+            </div>
+            <div className="flex items-center justify-center text-center text-gray-500 text-sm">
+              We have accepted your request. Our team will analyze it and you will receive your money in your bank
+              account within one business day.
+            </div>
+            <div className="max-w-xl w-full space-y-4">
+              <div className="grid grid-cols-1 gap-4 pt-6">
+                <button
+                  className="bg-red-600 text-white font-semibold py-2 rounded-md hover:bg-red-500 transition cursor-pointer"
+                  onClick={() => setShowSuccessModal(false)}
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </DashLayout>
   );
 };

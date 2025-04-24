@@ -1,4 +1,4 @@
-import { PayoutData, PayoutDetail } from '@/types';
+import { Account, PayoutData, PayoutDetail } from '@/types';
 
 export const payoutDataMock: PayoutData = {
   pagination: {
@@ -64,3 +64,14 @@ export const payoutDetailMock: PayoutDetail = {
   processedAt: new Date(),
   depositedAt: new Date(),
 };
+
+export const accountsMock: Account[] = [
+  {
+    id: 'sdfdsfsdfdsfdf',
+    holder: 'Nur Hassan',
+    address: '9870802109012912',
+    where: 'American Bank',
+    isActive: true,
+    updatedAt: new Date(),
+  },
+];

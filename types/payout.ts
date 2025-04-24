@@ -30,3 +30,12 @@ export type PayoutData = {
   };
   data: Payout[];
 };
+
+export type Account = {
+  holder: string;
+  id: string;
+  address: string;
+  where: string;
+  isActive: boolean;
+  updatedAt: Date;
+};
