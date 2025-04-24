@@ -93,6 +93,9 @@ const IntegrationPage = () => {
                       router.push(`/merchant/integrations/apikeyit?title=${item.name}`);
                     else if (item.name === 'API Integration')
                       router.push(`/merchant/integrations/apikeyit?title=Custom`);
+                    else if (group.section === 'Tracking Pixels')
+                      router.push(`/merchant/integrations/pixelit?title=${item.name}`);
+                    else if (item.name === 'Webhook') router.push(`/merchant/integrations/webhookit`);
                   }}
                 >
                   <Image src={item.icon} alt={item.name} width={48} height={48} className="mb-3" />

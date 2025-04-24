@@ -11,6 +11,7 @@ import { DashLayout } from '@/components/layouts';
 import fileCopyIcon from '@/assets/images/icons/file-copy-2-fill.svg';
 import eyeFillIcon from '@/assets/images/icons/eye-fill.svg';
 import arrowRightIcon from '@/assets/images/icons/arrow-right-line.svg';
+import backIcon from '@/assets/images/icons/back.svg';
 
 const ApiKeyIntegrationPage = () => {
   const pathname = usePathname();
@@ -33,8 +34,9 @@ const ApiKeyIntegrationPage = () => {
     >
       <div className="p-6 bg-white rounded-lg space-y-6">
         <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-          <Link href="/merchant/integrations" className="text-sm text-gray-800 cursor-pointer">
-            &larr; Back
+          <Link href="/merchant/integrations" className="text-sm text-gray-800 cursor-pointer flex items-center gap-1">
+            <Image src={backIcon} alt="Back" className="w-4 h-4" />
+            Back
           </Link>
         </div>
         <div className="flex items-center justify-between">

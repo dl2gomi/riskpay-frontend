@@ -69,7 +69,7 @@ const TransactionPage = () => {
     endpoint: transactionsUrl,
     headers: {
       Accept: 'application/json',
-      Authorization: `Bearer 124567890}`, // this needs to be changed with the local storage key
+      Authorization: `Bearer 124567890`, // this needs to be changed with the local storage key
     },
     method: 'GET',
     params: {

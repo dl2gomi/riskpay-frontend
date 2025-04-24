@@ -5,3 +5,6 @@ export const signinUrl = `${apiBaseUrl}/auth/signin`;
 
 // transactions
 export const transactionsUrl = `${apiBaseUrl}/transactions`;
+
+// integrations
+export const webhooksUrl = `${apiBaseUrl}/webhooks`;
