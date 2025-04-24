@@ -57,7 +57,7 @@ const TransactionPage = () => {
       pageCount: 0,
       currentPage: 1,
     },
-    transactions: [] as Transaction[],
+    data: [] as Transaction[],
   });
 
   const {
@@ -283,8 +283,8 @@ const TransactionPage = () => {
               </tr>
             )}
             {!txLoading &&
-              txData?.transactions?.length > 0 &&
-              txData?.transactions.map((t, i) => (
+              txData?.data?.length > 0 &&
+              txData?.data.map((t, i) => (
                 <tr key={i} className="h-10">
                   <td className="border-b border-b-gray-200">
                     <input type="checkbox" className="align-middle" />
@@ -322,7 +322,7 @@ const TransactionPage = () => {
                   </td>
                 </tr>
               ))}
-            {!txLoading && txData?.transactions?.length === 0 && (
+            {!txLoading && txData?.data?.length === 0 && (
               <tr>
                 <td colSpan={8} className="text-center p-6">
                   No Transactions

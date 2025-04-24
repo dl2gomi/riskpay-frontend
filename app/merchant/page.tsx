@@ -111,7 +111,7 @@ const Dashboard = () => {
     >
       <div className="grid grid-cols-3 gap-6">
         <div className="col-span-3 lg:col-span-2 space-y-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 bg-white p-4 rounded-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 bg-white px-4 py-2 rounded-2xl">
             <div className="mt-4 mb-4 pl-4 pr-2 border-r-none lg:border-r border-gray-200">
               <p className="text-[#777B84] font-semibold text-sm mb-2 truncate overflow-hidden whitespace-nowrap">
                 Gross Revenue
@@ -129,6 +129,9 @@ const Dashboard = () => {
                   </p>
                 )}
               </div>
+              <p className="text-[#777B84] text-xs my-2 truncate overflow-hidden whitespace-nowrap">
+                Total Earnings Before Costs
+              </p>
             </div>
             <div className="mt-4 mb-4 pl-4 pr-2 lg:pl-10 border-r-none lg:border-r border-gray-200">
               <p className="text-[#777B84] font-semibold text-sm mb-2 truncate overflow-hidden whitespace-nowrap">
@@ -147,6 +150,9 @@ const Dashboard = () => {
                   </p>
                 )}
               </div>
+              <p className="text-[#777B84] text-xs my-2 truncate overflow-hidden whitespace-nowrap">
+                Successfully Completed Payment
+              </p>
             </div>
             <div className="mt-4 mb-4 pl-4 pr-2 lg:pl-10">
               <p className="text-[#777B84] font-semibold text-sm mb-2 truncate overflow-hidden whitespace-nowrap">
@@ -165,6 +171,9 @@ const Dashboard = () => {
                   </p>
                 )}
               </div>
+              <p className="text-[#777B84] text-xs truncate overflow-hidden whitespace-nowrap my-2">
+                Success Order Volume
+              </p>
             </div>
           </div>
           {/* Sale Overview*/}
@@ -200,7 +209,7 @@ const Dashboard = () => {
           <div className="p-4 bg-white rounded-xl space-y-4">
             <div className="flex justify-between items-start">
               <div>
-                <h4 className="text-[#777B84] font-semibold my-1">Balance in USD</h4>
+                <h4 className="text-[#777B84] font-semibold my-1">Total Balance</h4>
                 <p className="text-xl font-semibold my-2">{`$${formatter.format(balanceData?.balance)}`}</p>
                 <p className="text-[#BEBEBE] my-1 truncate overflow-hidden whitespace-nowrap text-sm">
                   Estimate of future transfers
@@ -218,7 +227,7 @@ const Dashboard = () => {
 
             <div className="flex justify-between items-start">
               <div>
-                <h4 className="text-[#777B84] font-semibold my-1">Payout</h4>
+                <h4 className="text-[#777B84] font-semibold my-1">Available Balance</h4>
                 <p className="text-xl font-semibold my-2">{`$${formatter.format(balanceData?.payout)}`}</p>
                 <p className="text-[#BEBEBE] my-1 truncate overflow-hidden whitespace-nowrap text-sm">
                   Expected on {balanceData?.payoutDate}
@@ -237,7 +246,7 @@ const Dashboard = () => {
           <div className="p-4 bg-white rounded-xl">
             <h4 className="font-semibold text-[#090E18] mb-1 text-base">Account status</h4>
             <p className="text-sm text-[#BEBEBE] mb-4 truncate overflow-hidden whitespace-nowrap">
-              Chargebacks, Paid / Failed order
+              Paid Orders, Chargebacks, Refunded Orders
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-4">

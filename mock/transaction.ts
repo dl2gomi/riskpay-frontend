@@ -7,7 +7,7 @@ export const txDataMock: TransactionData = {
     pageCount: 12,
     currentPage: 1,
   },
-  transactions: [
+  data: [
     {
       date: new Date(),
       id: 'jhdgjasdFGrsg45878',

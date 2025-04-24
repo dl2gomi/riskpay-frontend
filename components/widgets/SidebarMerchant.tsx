@@ -24,12 +24,12 @@ const Sidebar = () => {
 
       if (subpath.startsWith('/transactions')) {
         setCurrentTab('transactions');
-      } else if (subpath.startsWith('/payments')) {
-        setCurrentTab('payments');
+      } else if (subpath.startsWith('/products')) {
+        setCurrentTab('products');
       } else if (subpath.startsWith('/integration')) {
         setCurrentTab('integration');
-      } else if (subpath.startsWith('/balances')) {
-        setCurrentTab('balances');
+      } else if (subpath.startsWith('/finance')) {
+        setCurrentTab('finance');
       } else if (subpath.startsWith('/settings')) {
         setCurrentTab('settings');
       } else {
@@ -64,7 +64,7 @@ const Sidebar = () => {
             </div>
           </Link>
           <Link
-            className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'payments' ? 'bg-red-100' : ''}`}
+            className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'products' ? 'bg-red-100' : ''}`}
             href="/merchant/products"
           >
             <div className="flex items-center gap-3 text-sm font-medium">
@@ -80,7 +80,7 @@ const Sidebar = () => {
             </div>
           </Link>
           <Link
-            className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'balances' ? 'bg-red-100' : ''}`}
+            className={`block px-3 py-2 rounded-lg cursor-pointer ${currentTab === 'finance' ? 'bg-red-100' : ''}`}
             href="/merchant/finance"
           >
             <div className="flex items-center gap-3 text-sm font-medium">

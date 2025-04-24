@@ -14,5 +14,5 @@ export type TransactionData = {
     pageCount: number;
     currentPage: number;
   };
-  transactions: Transaction[];
+  data: Transaction[];
 };

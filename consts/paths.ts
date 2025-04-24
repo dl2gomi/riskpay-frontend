@@ -8,3 +8,7 @@ export const transactionsUrl = `${apiBaseUrl}/transactions`;
 
 // integrations
 export const webhooksUrl = `${apiBaseUrl}/webhooks`;
+
+// finance
+export const payoutsUrl = `${apiBaseUrl}/payouts`;
+export const payoutDetailUrl = `${apiBaseUrl}/payouts`;
