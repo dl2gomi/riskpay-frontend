@@ -87,7 +87,7 @@ const IntegrationPage = () => {
               {group.items.map((item) => (
                 <div
                   key={item.name}
-                  className="flex flex-col p-4 border border-gray-100 rounded-lg transition cursor-pointer hover:bg-gray-100"
+                  className="flex flex-col p-4 border border-gray-100 rounded-lg transition cursor-pointer hover:bg-[#FBF3F4]"
                   onClick={() => {
                     if (group.section === 'Store Platforms')
                       router.push(`/merchant/integrations/apikeyit?title=${item.name}`);

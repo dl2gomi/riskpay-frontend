@@ -4,7 +4,16 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { DashLayout } from '@/components/layouts';
-import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { Webhook } from '@/types';
 import { useApiRequest } from '@/hooks';
@@ -149,9 +158,49 @@ const WebhookIntegrationPage = () => {
                     </span>
                   </td>
                   <td className="p-2 text-gray-500 border-b border-b-gray-200">
-                    <button className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
-                      <MoreHorizontal className="h-4 w-4" />
-                    </button>
+                    <Menu as="div" className="relative inline-block text-left">
+                      <div>
+                        <MenuButton className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
+                          <MoreHorizontal className="h-4 w-4" />
+                        </MenuButton>
+                      </div>
+                      <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white ring-1 ring-gray-300 focus:outline-none cursor-pointer">
+                        <div className="py-1">
+                          <MenuItem>
+                            <button
+                              className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                              onClick={() => {}}
+                            >
+                              Activate
+                            </button>
+                          </MenuItem>
+                          <MenuItem>
+                            <button
+                              className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                              onClick={() => {}}
+                            >
+                              Deactivate
+                            </button>
+                          </MenuItem>
+                          <MenuItem>
+                            <button
+                              className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                              onClick={() => {}}
+                            >
+                              Edit
+                            </button>
+                          </MenuItem>
+                          <MenuItem>
+                            <button
+                              className="hover:bg-gray-100 hover:text-red-500 text-red-600 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                              onClick={() => {}}
+                            >
+                              Delete
+                            </button>
+                          </MenuItem>
+                        </div>
+                      </MenuItems>
+                    </Menu>
                   </td>
                 </tr>
               ))}
