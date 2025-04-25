@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
 import logoImg from '@/assets/images/logo.svg';
@@ -114,7 +114,7 @@ const SidebarLink = ({
   className,
 }: {
   href: string;
-  icon: any;
+  icon: StaticImageData;
   label: string;
   active: boolean;
   className?: string;
