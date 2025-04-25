@@ -71,16 +71,16 @@ const Sidebar = () => {
               active={currentTab === 'transactions'}
             />
             <SidebarLink
-              href="/merchant/products"
-              icon={payLinkIcon}
-              label="Products"
-              active={currentTab === 'products'}
-            />
-            <SidebarLink
               href="/merchant/integrations"
               icon={integIcon}
               label="Integrations"
               active={currentTab === 'integration'}
+            />
+            <SidebarLink
+              href="/merchant/products"
+              icon={payLinkIcon}
+              label="Products"
+              active={currentTab === 'products'}
             />
             <SidebarLink
               href="/merchant/finance"
@@ -92,7 +92,7 @@ const Sidebar = () => {
         </div>
 
         {/* Settings link at the bottom */}
-        <div className="pb-6">
+        <div className="pb-1">
           <SidebarLink
             href="/merchant/settings"
             icon={settingsIcon}
@@ -119,7 +119,10 @@ const SidebarLink = ({
   active: boolean;
   className?: string;
 }) => (
-  <Link href={href} className={`block px-3 py-2 rounded-lg cursor-pointer ${active ? 'bg-red-100' : ''} ${className}`}>
+  <Link
+    href={href}
+    className={`block px-3 py-2 rounded-lg cursor-pointer ${active ? 'bg-red-100' : ''} ${className ?? ''}`}
+  >
     <div className="flex items-center gap-3 text-sm font-medium">
       <Image src={icon} alt={`${label} Icon`} width={16} height={16} /> {label}
     </div>

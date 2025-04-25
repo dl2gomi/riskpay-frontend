@@ -120,9 +120,9 @@ const FinancePage = () => {
         <>
           <Link
             href="/merchant/finance/accounts"
-            className="rounded-full bg-white hover:bg-gray-100 cursor-pointer text-sm px-3 py-1.5 text-gray-700 transition border border-gray-200 truncate"
+            className="rounded-full bg-white hover:text-red-600 cursor-pointer text-sm px-3 py-1.5 text-gray-700 transition-colors border border-gray-200 truncate"
           >
-            Payout Accounts
+            Manage Accounts
           </Link>
           <button
             className="rounded-full bg-red-600 hover:bg-red-500 cursor-pointer text-sm px-3 py-1.5 text-white transition"

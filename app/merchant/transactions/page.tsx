@@ -121,7 +121,7 @@ const TransactionPage = () => {
       }
     >
       <div className="p-4 bg-white rounded-lg">
-        <div className="flex items-center justify-between border-b border-b-gray-200 pb-2 mb-3 mx-2">
+        <div className="flex items-center justify-between border-b border-b-gray-200 pb-2 mb-3">
           <div className="flex space-x-4 text-sm font-medium text-gray-900">
             <div
               className={`${
@@ -178,7 +178,7 @@ const TransactionPage = () => {
           </button> */}
         </div>
 
-        <div className="flex gap-4 flex-wrap text-sm mb-3 px-2">
+        <div className="flex gap-4 flex-wrap text-sm mb-3">
           {['Date', 'Amount', 'Status', 'Card Type'].map((filter, idx) => (
             <button
               key={idx}

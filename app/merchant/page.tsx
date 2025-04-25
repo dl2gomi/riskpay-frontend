@@ -9,6 +9,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import '@/assets/styles/dashboard.css';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import Link from 'next/link';
 
 const CustomTooltip: React.FC<{ payload?: Array<{ payload: { value: number | string } }>; label?: string }> = ({
   payload,
@@ -88,9 +89,9 @@ const Dashboard = () => {
     role: 'Merchant',
   }; // this needs to be changed using local stroage interacted with backend
 
-  const periods = [0, 7, 15, 30];
+  const periods = [1, 2, 7, 15, 30, 0];
 
-  const [period, setPeriod] = useState(0);
+  const [period, setPeriod] = useState(1);
 
   return (
     <DashLayout
@@ -112,7 +113,7 @@ const Dashboard = () => {
           <div>
             <MenuButton className="inline-flex items-center gap-2 border border-gray-400 px-3 py-1 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer">
               <ListFilter className="w-4 h-4 text-indigo-900" />
-              {period === 0 ? 'All' : `Last ${period} days`}
+              {period === 0 ? 'Lifetime' : period === 1 ? 'Today' : period === 2 ? 'Yesterday' : `Last ${period} days`}
             </MenuButton>
           </div>
           <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white ring-1 ring-gray-300 focus:outline-none cursor-pointer">
@@ -123,7 +124,7 @@ const Dashboard = () => {
                     className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
                     onClick={() => setPeriod(p)}
                   >
-                    {p === 0 ? 'All' : `Last ${p} days`}
+                    {p === 0 ? 'Lifetime' : p === 1 ? 'Today' : p === 2 ? 'Yesterday' : `Last ${p} days`}
                   </button>
                 </MenuItem>
               ))}
@@ -229,12 +230,12 @@ const Dashboard = () => {
                   Net amount to be available soon
                 </p>
               </div>
-              <a
-                href="#"
+              <Link
+                href="/merchant/finance"
                 className="font-normal text-gray-600 hover:underline truncate overflow-hidden whitespace-nowrap"
               >
                 See Details
-              </a>
+              </Link>
             </div>
 
             <hr className="border-gray-200" />
@@ -247,12 +248,12 @@ const Dashboard = () => {
                   Total amount available for withdrawal
                 </p>
               </div>
-              <a
-                href="#"
+              <Link
+                href="/merchant/finance"
                 className="font-normal text-gray-600 hover:underline truncate overflow-hidden whitespace-nowrap"
               >
                 See Details
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -260,7 +261,7 @@ const Dashboard = () => {
           <div className="p-4 bg-white rounded-xl">
             <h4 className="font-semibold text-[#090E18] mb-1 text-base">Account status</h4>
             <p className="text-sm text-[#BEBEBE] mb-4 truncate overflow-hidden whitespace-nowrap">
-              Paid Orders, Chargebacks, Refunded Orders
+              Paid Orders, Chargebacks, Refunded
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-4">

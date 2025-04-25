@@ -100,7 +100,7 @@ const AccountsPage = () => {
   }, [typeFilter]);
 
   return (
-    <DashLayout titleArea={<h2 className="text-xl font-semibold truncate">Payout Accounts</h2>}>
+    <DashLayout titleArea={<h2 className="text-xl font-semibold truncate">Manage Payout Accounts</h2>}>
       <div className="p-4 bg-white rounded-lg">
         <div className="flex items-center justify-between border-b border-b-gray-200 pb-2 mb-3 mx-2">
           <div className="flex space-x-4 text-sm font-medium text-gray-900">
