@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, CartesianGrid } from 'recharts';
 import { DashLayout } from '@/components/layouts';
 import { ListFilter } from 'lucide-react';
@@ -8,6 +8,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 import 'react-circular-progressbar/dist/styles.css';
 import '@/assets/styles/dashboard.css';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 
 const CustomTooltip: React.FC<{ payload?: Array<{ payload: { value: number | string } }>; label?: string }> = ({
   payload,
@@ -87,6 +88,10 @@ const Dashboard = () => {
     role: 'Merchant',
   }; // this needs to be changed using local stroage interacted with backend
 
+  const periods = [0, 7, 15, 30];
+
+  const [period, setPeriod] = useState(0);
+
   return (
     <DashLayout
       titleArea={
@@ -103,10 +108,28 @@ const Dashboard = () => {
         </>
       }
       tools={
-        <button className="inline-flex items-center gap-2 border border-gray-400 px-3 py-1.5 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100">
-          <ListFilter className="w-4 h-4 text-indigo-900" />
-          Last 7 Days
-        </button>
+        <Menu as="div" className="relative inline-block text-left">
+          <div>
+            <MenuButton className="inline-flex items-center gap-2 border border-gray-400 px-3 py-1 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer">
+              <ListFilter className="w-4 h-4 text-indigo-900" />
+              {period === 0 ? 'All' : `Last ${period} days`}
+            </MenuButton>
+          </div>
+          <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white ring-1 ring-gray-300 focus:outline-none cursor-pointer">
+            <div className="py-1">
+              {periods.map((p, i) => (
+                <MenuItem key={i}>
+                  <button
+                    className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                    onClick={() => setPeriod(p)}
+                  >
+                    {p === 0 ? 'All' : `Last ${p} days`}
+                  </button>
+                </MenuItem>
+              ))}
+            </div>
+          </MenuItems>
+        </Menu>
       }
     >
       <div className="grid grid-cols-3 gap-6">

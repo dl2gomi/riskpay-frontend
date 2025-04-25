@@ -75,7 +75,7 @@ const IntegrationPage = () => {
     <DashLayout
       titleArea={
         <>
-          <h2 className="text-xl font-semibold">Choose your API integration system</h2>
+          <h2 className="text-xl font-semibold truncate">Choose your API integration system</h2>
         </>
       }
     >

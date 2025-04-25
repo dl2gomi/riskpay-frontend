@@ -191,146 +191,149 @@ const TransactionPage = () => {
             </button>
           ))}
         </div>
-
         <div className="h-12 bg-gray-100 -mx-4" style={{ width: 'calc(100% + var(--spacing) * 8)' }} />
 
-        <table className="table-auto w-full -mt-12">
-          <thead className="bg-gray-100 text-xs font-semibold text-gray-700 mb-2">
-            <tr className="h-12">
-              <th className="text-left w-8">
-                <input type="checkbox" className="align-middle" />
-              </th>
-              <th
-                className="p-2 text-left cursor-pointer"
-                onClick={() =>
-                  orderField !== 'createdAt' ? setOrderField('createdAt') : setOrder(order === 'asc' ? 'desc' : 'asc')
-                }
-              >
-                <div className="flex items-center">
-                  <span>Date/Time</span>
-                  <Image
-                    src={orderField !== 'createdAt' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
-                    alt="order"
-                  />
-                </div>
-              </th>
-              <th
-                className="p-2 text-left cursor-pointer"
-                onClick={() =>
-                  orderField !== 'txid' ? setOrderField('txid') : setOrder(order === 'asc' ? 'desc' : 'asc')
-                }
-              >
-                <div className="flex items-center">
-                  <span>Transaction ID</span>
-                  <Image
-                    src={orderField !== 'txid' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
-                    alt="order"
-                  />
-                </div>
-              </th>
-              <th className="p-2 text-left">Customer</th>
-              <th
-                className="p-2 text-left cursor-pointer"
-                onClick={() =>
-                  orderField !== 'card' ? setOrderField('card') : setOrder(order === 'asc' ? 'desc' : 'asc')
-                }
-              >
-                <div className="flex items-center">
-                  <span>Card Type</span>
-                  <Image
-                    src={orderField !== 'card' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
-                    alt="order"
-                  />
-                </div>
-              </th>
-              <th
-                className="p-2 text-left cursor-pointer"
-                onClick={() =>
-                  orderField !== 'status' ? setOrderField('status') : setOrder(order === 'asc' ? 'desc' : 'asc')
-                }
-              >
-                <div className="flex items-center">
-                  <span>Status</span>
-                  <Image
-                    src={orderField !== 'status' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
-                    alt="order"
-                  />
-                </div>
-              </th>
-              <th
-                className="p-2 text-left cursor-pointer"
-                onClick={() =>
-                  orderField !== 'amount' ? setOrderField('amount') : setOrder(order === 'asc' ? 'desc' : 'asc')
-                }
-              >
-                <div className="flex items-center">
-                  <span>Amount</span>
-                  <Image
-                    src={orderField !== 'amount' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
-                    alt="order"
-                  />
-                </div>
-              </th>
-              <th className="p-2 text-left"></th>
-            </tr>
-          </thead>
-          <tbody className="text-sm">
-            {txLoading && (
-              <tr>
-                <td colSpan={8} className="text-center p-6">
-                  Loading Transactions...
-                </td>
+        <div className="max-w-full overflow-auto -mt-12">
+          <table className="table-auto w-full">
+            <thead className="bg-gray-100 text-xs font-semibold text-gray-700 mb-2">
+              <tr className="h-12">
+                <th className="text-left w-8">
+                  <input type="checkbox" className="align-middle" />
+                </th>
+                <th
+                  className="p-2 text-left cursor-pointer"
+                  onClick={() =>
+                    orderField !== 'createdAt' ? setOrderField('createdAt') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                  }
+                >
+                  <div className="flex items-center">
+                    <span>Date/Time</span>
+                    <Image
+                      src={
+                        orderField !== 'createdAt' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon
+                      }
+                      alt="order"
+                    />
+                  </div>
+                </th>
+                <th
+                  className="p-2 text-left cursor-pointer"
+                  onClick={() =>
+                    orderField !== 'txid' ? setOrderField('txid') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                  }
+                >
+                  <div className="flex items-center">
+                    <span>Transaction ID</span>
+                    <Image
+                      src={orderField !== 'txid' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                      alt="order"
+                    />
+                  </div>
+                </th>
+                <th className="p-2 text-left">Customer</th>
+                <th
+                  className="p-2 text-left cursor-pointer"
+                  onClick={() =>
+                    orderField !== 'card' ? setOrderField('card') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                  }
+                >
+                  <div className="flex items-center">
+                    <span>Card Type</span>
+                    <Image
+                      src={orderField !== 'card' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                      alt="order"
+                    />
+                  </div>
+                </th>
+                <th
+                  className="p-2 text-left cursor-pointer"
+                  onClick={() =>
+                    orderField !== 'status' ? setOrderField('status') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                  }
+                >
+                  <div className="flex items-center">
+                    <span>Status</span>
+                    <Image
+                      src={orderField !== 'status' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                      alt="order"
+                    />
+                  </div>
+                </th>
+                <th
+                  className="p-2 text-left cursor-pointer"
+                  onClick={() =>
+                    orderField !== 'amount' ? setOrderField('amount') : setOrder(order === 'asc' ? 'desc' : 'asc')
+                  }
+                >
+                  <div className="flex items-center">
+                    <span>Amount</span>
+                    <Image
+                      src={orderField !== 'amount' ? orderNormalIcon : order === 'asc' ? orderAscIcon : orderDescIcon}
+                      alt="order"
+                    />
+                  </div>
+                </th>
+                <th className="p-2 text-left"></th>
               </tr>
-            )}
-            {!txLoading &&
-              txData?.data?.length > 0 &&
-              txData?.data.map((t, i) => (
-                <tr key={i} className="h-10">
-                  <td className="border-b border-b-gray-200">
-                    <input type="checkbox" className="align-middle" />
+            </thead>
+            <tbody className="text-sm">
+              {txLoading && (
+                <tr>
+                  <td colSpan={8} className="text-center p-6">
+                    Loading Transactions...
                   </td>
-                  {/* <td className="pl-4 w-8 h-full">
+                </tr>
+              )}
+              {!txLoading &&
+                txData?.data?.length > 0 &&
+                txData?.data.map((t, i) => (
+                  <tr key={i} className="h-10">
+                    <td className="border-b border-b-gray-200">
+                      <input type="checkbox" className="align-middle" />
+                    </td>
+                    {/* <td className="pl-4 w-8 h-full">
                     <div className="border-b border-b-gray-200 flex items-center h-full w-full">
                       <input type="checkbox" style={{ verticalAlign: 'middle' }} />
                     </div>
                   </td> */}
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
-                    {t.date.toLocaleString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric',
-                      hour: 'numeric',
-                      minute: '2-digit',
-                      hour12: true,
-                    })}
-                  </td>
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.id}</td>
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.customer}</td>
-                  <td className="p-2 border-b border-b-gray-200">
-                    <Image src={cardIcons[t.card]} alt={t.card} className="h-5 inline" />
-                  </td>
-                  <td className="p-2 border-b border-b-gray-200">
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${statusStyles[t.status]} rounded-full`}>
-                      {t.status}
-                    </span>
-                  </td>
-                  <td className="p-2 font-semibold border-b border-b-gray-200">{`$${formatter.format(t.amount)}`}</td>
-                  <td className="p-2 text-gray-500 border-b border-b-gray-200">
-                    <button className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
-                      <MoreHorizontal className="h-4 w-4" />
-                    </button>
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
+                      {t.date.toLocaleString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                        hour: 'numeric',
+                        minute: '2-digit',
+                        hour12: true,
+                      })}
+                    </td>
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.id}</td>
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.customer}</td>
+                    <td className="p-2 border-b border-b-gray-200">
+                      <Image src={cardIcons[t.card]} alt={t.card} className="h-5 inline" />
+                    </td>
+                    <td className="p-2 border-b border-b-gray-200">
+                      <span className={`px-2 py-1 rounded text-xs font-medium ${statusStyles[t.status]} rounded-full`}>
+                        {t.status}
+                      </span>
+                    </td>
+                    <td className="p-2 font-semibold border-b border-b-gray-200">{`$${formatter.format(t.amount)}`}</td>
+                    <td className="p-2 text-gray-500 border-b border-b-gray-200">
+                      <button className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
+                        <MoreHorizontal className="h-4 w-4" />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              {!txLoading && txData?.data?.length === 0 && (
+                <tr>
+                  <td colSpan={8} className="text-center p-6">
+                    No Transactions
                   </td>
                 </tr>
-              ))}
-            {!txLoading && txData?.data?.length === 0 && (
-              <tr>
-                <td colSpan={8} className="text-center p-6">
-                  No Transactions
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              )}
+            </tbody>
+          </table>
+        </div>
         <div className="mt-12">
           <Pagination
             totalLength={txData.pagination.totalLength}

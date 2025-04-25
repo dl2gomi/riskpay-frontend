@@ -103,116 +103,118 @@ const WebhookIntegrationPage = () => {
           <div className="text-base font-semibold">Webhooks</div>
         </div>
         <div className="h-12 bg-gray-100 -mx-6" style={{ width: 'calc(100% + var(--spacing) * 12)' }} />
-        <table className="table-auto w-full -mt-16 mb-16">
-          <thead className="bg-gray-100 text-xs font-semibold text-gray-700 mb-2">
-            <tr className="h-12">
-              <th className="p-2 text-left">Created On</th>
-              <th className="p-2 text-left">Type</th>
-              <th className="p-2 text-left">URL</th>
-              <th className="p-2 text-left">Status</th>
-              <th className="p-2 text-left"></th>
-            </tr>
-          </thead>
-          <tbody className="text-sm">
-            {webhookLoading && (
-              <tr>
-                <td colSpan={8} className="text-center p-6">
-                  Loading Webhooks...
-                </td>
+        <div className="max-w-full overflow-auto -mt-16">
+          <table className="table-auto w-full mb-16">
+            <thead className="bg-gray-100 text-xs font-semibold text-gray-700 mb-2">
+              <tr className="h-12">
+                <th className="p-2 text-left">Created On</th>
+                <th className="p-2 text-left">Type</th>
+                <th className="p-2 text-left">URL</th>
+                <th className="p-2 text-left">Status</th>
+                <th className="p-2 text-left"></th>
               </tr>
-            )}
-            {!webhookLoading &&
-              hookData?.length > 0 &&
-              hookData?.map((t, i) => (
-                <tr key={i} className="h-10">
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
-                    {t.createdAt.toLocaleString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric',
-                      hour: 'numeric',
-                      minute: '2-digit',
-                      hour12: true,
-                    })}
-                  </td>
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.type}</td>
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
-                    <div className="flex items-center gap-2">
-                      <span>{t.url}</span>
-                      <button
-                        title="Copy"
-                        className="p-1 hover:bg-gray-100 rounded-full cursor-pointer"
-                        onClick={() => handleCopy(t.url)}
-                      >
-                        <Image alt="Copy" src={fileCopyIcon} className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </td>
-                  <td className="p-2 border-b border-b-gray-200">
-                    <span
-                      className={`px-3 py-1 text-xs font-medium rounded-full text-gray-600 ${
-                        t.isActive ? 'bg-[#CBFCCB]' : 'bg-gray-200'
-                      }`}
-                    >
-                      {t.isActive ? 'Active' : 'Inactive'}
-                    </span>
-                  </td>
-                  <td className="p-2 text-gray-500 border-b border-b-gray-200">
-                    <Menu as="div" className="relative inline-block text-left">
-                      <div>
-                        <MenuButton className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
-                          <MoreHorizontal className="h-4 w-4" />
-                        </MenuButton>
-                      </div>
-                      <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white ring-1 ring-gray-300 focus:outline-none cursor-pointer">
-                        <div className="py-1">
-                          <MenuItem>
-                            <button
-                              className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
-                              onClick={() => {}}
-                            >
-                              Activate
-                            </button>
-                          </MenuItem>
-                          <MenuItem>
-                            <button
-                              className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
-                              onClick={() => {}}
-                            >
-                              Deactivate
-                            </button>
-                          </MenuItem>
-                          <MenuItem>
-                            <button
-                              className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
-                              onClick={() => {}}
-                            >
-                              Edit
-                            </button>
-                          </MenuItem>
-                          <MenuItem>
-                            <button
-                              className="hover:bg-gray-100 hover:text-red-500 text-red-600 w-full px-4 py-2 text-left text-sm cursor-pointer"
-                              onClick={() => {}}
-                            >
-                              Delete
-                            </button>
-                          </MenuItem>
-                        </div>
-                      </MenuItems>
-                    </Menu>
+            </thead>
+            <tbody className="text-sm">
+              {webhookLoading && (
+                <tr>
+                  <td colSpan={8} className="text-center p-6">
+                    Loading Webhooks...
                   </td>
                 </tr>
-              ))}
-            {!webhookLoading && hookData?.length === 0 && (
-              <tr>
-                <td colSpan={8} className="text-center p-6">
-                  No Webhooks
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              )}
+              {!webhookLoading &&
+                hookData?.length > 0 &&
+                hookData?.map((t, i) => (
+                  <tr key={i} className="h-10">
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
+                      {t.createdAt.toLocaleString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                        hour: 'numeric',
+                        minute: '2-digit',
+                        hour12: true,
+                      })}
+                    </td>
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.type}</td>
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
+                      <div className="flex items-center gap-2">
+                        <span>{t.url}</span>
+                        <button
+                          title="Copy"
+                          className="p-1 hover:bg-gray-100 rounded-full cursor-pointer"
+                          onClick={() => handleCopy(t.url)}
+                        >
+                          <Image alt="Copy" src={fileCopyIcon} className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </td>
+                    <td className="p-2 border-b border-b-gray-200">
+                      <span
+                        className={`px-3 py-1 text-xs font-medium rounded-full text-gray-600 ${
+                          t.isActive ? 'bg-[#CBFCCB]' : 'bg-gray-200'
+                        }`}
+                      >
+                        {t.isActive ? 'Active' : 'Inactive'}
+                      </span>
+                    </td>
+                    <td className="p-2 text-gray-500 border-b border-b-gray-200">
+                      <Menu as="div" className="relative inline-block text-left">
+                        <div>
+                          <MenuButton className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
+                            <MoreHorizontal className="h-4 w-4" />
+                          </MenuButton>
+                        </div>
+                        <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white ring-1 ring-gray-300 focus:outline-none cursor-pointer">
+                          <div className="py-1">
+                            <MenuItem>
+                              <button
+                                className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                onClick={() => {}}
+                              >
+                                Activate
+                              </button>
+                            </MenuItem>
+                            <MenuItem>
+                              <button
+                                className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                onClick={() => {}}
+                              >
+                                Deactivate
+                              </button>
+                            </MenuItem>
+                            <MenuItem>
+                              <button
+                                className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                onClick={() => {}}
+                              >
+                                Edit
+                              </button>
+                            </MenuItem>
+                            <MenuItem>
+                              <button
+                                className="hover:bg-gray-100 hover:text-red-500 text-red-600 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                onClick={() => {}}
+                              >
+                                Delete
+                              </button>
+                            </MenuItem>
+                          </div>
+                        </MenuItems>
+                      </Menu>
+                    </td>
+                  </tr>
+                ))}
+              {!webhookLoading && hookData?.length === 0 && (
+                <tr>
+                  <td colSpan={8} className="text-center p-6">
+                    No Webhooks
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
       {showModal && (
         <div

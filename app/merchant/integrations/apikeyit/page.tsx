@@ -39,22 +39,22 @@ const ApiKeyIntegrationPage = () => {
             Back
           </Link>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="grid lg:grid-cols-2">
           <div className="text-base font-semibold">{title ?? ''} API Integration Keys</div>
           <Link
             href="/merchant/help"
-            className="flex items-center gap-1 text-sm text-[#DE0707] font-medium cursor-pointer"
+            className="flex items-center gap-1 text-sm text-[#DE0707] font-medium cursor-pointer lg:justify-end"
           >
             Learn more about API authentication <Image src={arrowRightIcon} alt="to" className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="flex items-center justify-between bg-gray-100 p-4 rounded-lg">
+        <div className="grid lg:grid-cols-2 items-center justify-between bg-gray-100 p-4 rounded-lg gap-2">
           <div className="flex items-center gap-2 text-sm text-gray-700 px-2">
             <InfoIcon fill="#777" stroke="white" className="w-5 h-5 rounded-full border-0" />
             Viewing test API Keys. Toggle to view live Keys
           </div>
-          <div className="flex items-center gap-2 text-sm text-gray-700">
+          <div className="flex items-center gap-2 text-sm text-gray-700 lg:justify-end">
             <Switch
               checked={!viewingTestData}
               onChange={() => setViewingTestData(!viewingTestData)}
@@ -99,10 +99,10 @@ const ApiKeyIntegrationPage = () => {
                 { name: 'Secret Key', token: 'sk_test_1234567890abcdefghijklmnopqrstuvwxyz', date: 'Feb 6, 2025' },
               ].map((key, i) => (
                 <tr key={key.name} className="">
-                  <td className="pt-4 font-bold">{key.name}</td>
-                  <td className="pt-4 truncate max-w-xs">{key.token}</td>
-                  <td className="pt-4">{key.date}</td>
-                  <td className="pt-4">Jan 6, 2025</td>
+                  <td className="pt-4 font-bold pr-2 min-w-30">{key.name}</td>
+                  <td className="pt-4 truncate pr-2 max-w-xs">{key.token}</td>
+                  <td className="pt-4 min-w-30 pr-2 ">{key.date}</td>
+                  <td className="pt-4 min-w-30 pr-2">Jan 6, 2025</td>
                   <td className="pt-4 flex gap-2">
                     <button title="Copy" className="p-1 hover:bg-gray-100 rounded-full cursor-pointer">
                       <Image alt="Copy" src={fileCopyIcon} className="w-4 h-4" />

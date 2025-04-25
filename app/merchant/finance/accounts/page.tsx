@@ -100,14 +100,14 @@ const AccountsPage = () => {
   }, [typeFilter]);
 
   return (
-    <DashLayout titleArea={<h2 className="text-xl font-semibold">Payout Accounts</h2>}>
+    <DashLayout titleArea={<h2 className="text-xl font-semibold truncate">Payout Accounts</h2>}>
       <div className="p-4 bg-white rounded-lg">
         <div className="flex items-center justify-between border-b border-b-gray-200 pb-2 mb-3 mx-2">
           <div className="flex space-x-4 text-sm font-medium text-gray-900">
             <div
               className={`${
                 typeFilter === 'bank' ? 'text-red-600' : 'cursor-pointer hover:text-gray-500'
-              } transition-colors duration-200 ease-in-out`}
+              } transition-colors duration-200 ease-in-out truncate`}
               onClick={() => setTypeFilter('bank')}
             >
               Bank Accounts
@@ -115,7 +115,7 @@ const AccountsPage = () => {
             <div
               className={`${
                 typeFilter === 'crypto' ? 'text-red-600' : 'cursor-pointer hover:text-gray-500'
-              } transition-colors duration-200 ease-in-out`}
+              } transition-colors duration-200 ease-in-out truncate`}
               onClick={() => setTypeFilter('crypto')}
             >
               Crypto Wallets
@@ -123,7 +123,7 @@ const AccountsPage = () => {
           </div>
           {typeFilter === 'bank' && (
             <button
-              className="flex items-center gap-2 bg-red-600 text-white px-3 py-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400"
+              className="flex items-center gap-2 bg-red-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400 truncate"
               onClick={() => {
                 setCurrentBank({});
                 setShowBankModal(true);
@@ -135,7 +135,7 @@ const AccountsPage = () => {
           )}
           {typeFilter === 'crypto' && (
             <button
-              className="flex items-center gap-2 bg-red-600 text-white px-3 py-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400"
+              className="flex items-center gap-2 bg-red-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400 truncate"
               onClick={() => setShowCryptoModal(true)}
             >
               <PlusIcon className="w-4 h-4" />
@@ -143,97 +143,99 @@ const AccountsPage = () => {
             </button>
           )}
         </div>
-        <div className="flex gap-4 flex-wrap mb-3 px-2 items-center justify-between">
+        {/* <div className="flex gap-4 flex-wrap mb-3 px-2 items-center justify-between">
           {typeFilter === 'bank' && <div className="text-lg font-semibold">Payout Bank Accounts</div>}
           {typeFilter === 'crypto' && <div className="text-lg font-semibold">Payout Crypto Wallets</div>}
-        </div>
+        </div> */}
         <div className="h-12 bg-gray-100 -mx-6" style={{ width: 'calc(100% + var(--spacing) * 12)' }} />
 
-        <table className="table-auto w-full -mt-12 mb-16">
-          <thead className="bg-gray-100 text-xs font-semibold text-gray-700 mb-2">
-            <tr className="h-12">
-              <th className="p-2 text-left">Account Holder</th>
-              <th className="p-2 text-left">
-                {typeFilter === 'bank' && 'Account Number'}
-                {typeFilter === 'crypto' && 'Wallet Address'}
-              </th>
-              <th className="p-2 text-left">
-                {typeFilter === 'bank' && 'Bank Name'}
-                {typeFilter === 'crypto' && 'Crypto Channel'}
-              </th>
-              <th className="p-2 text-left">Status</th>
-              <th className="p-2 text-left">Updated On</th>
-              <th className="p-2 text-left"></th>
-            </tr>
-          </thead>
-          <tbody className="text-sm">
-            {accountsLoading && (
-              <tr>
-                <td colSpan={8} className="text-center p-6">
-                  {typeFilter === 'bank' && 'Loading Bank Accounts...'}
-                  {typeFilter === 'crypto' && 'Loading Wallet Addresses...'}
-                </td>
+        <div className="max-w-full overflow-auto -mt-12">
+          <table className="table-auto w-full mb-16">
+            <thead className="bg-gray-100 text-xs font-semibold text-gray-700 mb-2">
+              <tr className="h-12">
+                <th className="p-2 text-left">Account Holder</th>
+                <th className="p-2 text-left">
+                  {typeFilter === 'bank' && 'Account Number'}
+                  {typeFilter === 'crypto' && 'Wallet Address'}
+                </th>
+                <th className="p-2 text-left">
+                  {typeFilter === 'bank' && 'Bank Name'}
+                  {typeFilter === 'crypto' && 'Crypto Channel'}
+                </th>
+                <th className="p-2 text-left">Status</th>
+                <th className="p-2 text-left">Updated On</th>
+                <th className="p-2 text-left"></th>
               </tr>
-            )}
-            {!accountsLoading &&
-              accountData?.length > 0 &&
-              accountData?.map((t, i) => (
-                <tr key={i} className="h-10">
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
-                    <div className="flex items-center gap-2">
-                      <Image src={typeFilter === 'bank' ? bankIcon : cryptoIcon} alt="icon" className="w-8 h-8" />
-                      {t.holder}
-                    </div>
-                  </td>
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.address}</td>
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.where}</td>
-                  <td className="p-2 border-b border-b-gray-200">
-                    <span
-                      className={`px-3 py-1 text-xs font-medium rounded-full text-gray-600 ${
-                        t.isActive ? 'bg-[#CBFCCB]' : 'bg-gray-200'
-                      }`}
-                    >
-                      {t.isActive ? 'Active' : 'Inactive'}
-                    </span>
-                  </td>
-                  <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
-                    {t.updatedAt.toLocaleString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric',
-                    })}
-                  </td>
-                  <td className="p-2 text-gray-500 border-b border-b-gray-200">
-                    <button
-                      className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition cursor-pointer"
-                      onClick={() => {
-                        if (typeFilter === 'bank') {
-                          setCurrentBank({ id: t.id });
-                          setShowBankModal(true);
-                        } else {
-                          setCurrentCrypto({ id: t.id });
-                          setShowCryptoModal(true);
-                        }
-                      }}
-                    >
-                      <PencilLine
-                        fill="gray"
-                        className="w-4 h-4 text-gray-700 hover:text-gray-500 cursor-pointer transition"
-                      />
-                    </button>
+            </thead>
+            <tbody className="text-sm">
+              {accountsLoading && (
+                <tr>
+                  <td colSpan={8} className="text-center p-6">
+                    {typeFilter === 'bank' && 'Loading Bank Accounts...'}
+                    {typeFilter === 'crypto' && 'Loading Wallet Addresses...'}
                   </td>
                 </tr>
-              ))}
-            {!accountsLoading && accountData?.length === 0 && (
-              <tr>
-                <td colSpan={8} className="text-center p-6">
-                  {typeFilter === 'bank' && 'No Bank Accounts'}
-                  {typeFilter === 'crypto' && 'No Crypto Wallets'}
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              )}
+              {!accountsLoading &&
+                accountData?.length > 0 &&
+                accountData?.map((t, i) => (
+                  <tr key={i} className="h-10">
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200 min-w-30">
+                      <div className="flex items-center gap-2">
+                        <Image src={typeFilter === 'bank' ? bankIcon : cryptoIcon} alt="icon" className="w-8 h-8" />
+                        {t.holder}
+                      </div>
+                    </td>
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.address}</td>
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{t.where}</td>
+                    <td className="p-2 border-b border-b-gray-200">
+                      <span
+                        className={`px-3 py-1 text-xs font-medium rounded-full text-gray-600 ${
+                          t.isActive ? 'bg-[#CBFCCB]' : 'bg-gray-200'
+                        }`}
+                      >
+                        {t.isActive ? 'Active' : 'Inactive'}
+                      </span>
+                    </td>
+                    <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
+                      {t.updatedAt.toLocaleString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
+                    </td>
+                    <td className="p-2 text-gray-500 border-b border-b-gray-200">
+                      <button
+                        className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition cursor-pointer"
+                        onClick={() => {
+                          if (typeFilter === 'bank') {
+                            setCurrentBank({ id: t.id });
+                            setShowBankModal(true);
+                          } else {
+                            setCurrentCrypto({ id: t.id });
+                            setShowCryptoModal(true);
+                          }
+                        }}
+                      >
+                        <PencilLine
+                          fill="gray"
+                          className="w-4 h-4 text-gray-700 hover:text-gray-500 cursor-pointer transition"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              {!accountsLoading && accountData?.length === 0 && (
+                <tr>
+                  <td colSpan={8} className="text-center p-6">
+                    {typeFilter === 'bank' && 'No Bank Accounts'}
+                    {typeFilter === 'crypto' && 'No Crypto Wallets'}
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
       {showBankModal && (
         <div

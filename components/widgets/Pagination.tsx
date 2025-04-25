@@ -13,17 +13,17 @@ const Pagination: React.FC<{
   return (
     <div className="grid grid-cols-12 justify-between items-center text-sm">
       {totalLength === undefined && (
-        <div className="md:col-span-6 col-span-12 text-[#B5B7C0] text-center md:text-start"></div>
+        <div className="lg:col-span-6 col-span-12 text-[#B5B7C0] text-center lg:text-start pb-2"></div>
       )}
       {totalLength !== undefined && totalLength !== 0 && (
-        <div className="md:col-span-6 col-span-12 text-[#B5B7C0] text-center md:text-start">{`Showing data ${
+        <div className="lg:col-span-6 col-span-12 text-[#B5B7C0] text-center lg:text-start pb-2">{`Showing data ${
           (page! - 1) * limit! + 1
         } to ${Math.min(totalLength, page! * limit!)} of ${totalLength} entries`}</div>
       )}
       {totalLength !== undefined && totalLength === 0 && (
-        <div className="md:col-span-6 col-span-12 text-[#B5B7C0] text-center md:text-start">No Data</div>
+        <div className="lg:col-span-6 col-span-12 text-[#B5B7C0] text-center lg:text-start pb-2">No Data</div>
       )}
-      <div className="md:col-span-6 col-span-12 flex md:justify-end justify-center items-center text-xs">
+      <div className="lg:col-span-6 col-span-12 flex lg:justify-end justify-center items-center text-xs pb-2">
         <div
           className="flex justify-center items-center px-2 py-1.5 border rounded-md border-gray-200 gap-1 mr-4 cursor-pointer"
           onClick={page! > 1 ? () => pageClick(page! - 1) : () => {}}
