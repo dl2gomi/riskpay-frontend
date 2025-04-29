@@ -339,7 +339,9 @@ const TransactionPage = () => {
                             <MenuItem>
                               <button
                                 className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
-                                onClick={() => {}}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                }}
                               >
                                 Archive
                               </button>
@@ -347,7 +349,9 @@ const TransactionPage = () => {
                             <MenuItem>
                               <button
                                 className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
-                                onClick={() => {}}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                }}
                               >
                                 Refund
                               </button>
@@ -355,7 +359,9 @@ const TransactionPage = () => {
                             <MenuItem>
                               <button
                                 className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
-                                onClick={() => {}}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                }}
                               >
                                 Checkout URL
                               </button>
