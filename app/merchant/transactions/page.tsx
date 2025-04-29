@@ -14,20 +14,15 @@ import { useApiRequest } from '@/hooks';
 import { transactionsUrl } from '@/consts/paths';
 import Toaster from '@/helpers/Toaster';
 import { Transaction, TransactionData } from '@/types';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { txDataMock } from '@/mock';
 
 import excelIcon from '@/assets/images/icons/excel-export.svg';
 import orderNormalIcon from '@/assets/images/icons/order-normal.svg';
 import orderAscIcon from '@/assets/images/icons/order-asc.svg';
 import orderDescIcon from '@/assets/images/icons/order-desc.svg';
-
-const statusStyles: Record<Transaction['status'], string> = {
-  Succeeded: 'bg-green-100 text-green-700',
-  Pending: 'bg-yellow-100 text-yellow-700',
-  Failed: 'bg-red-100 text-red-700',
-  Chargeback: 'bg-red-100 text-red-700',
-  Refunded: 'bg-gray-200 text-gray-700',
-};
+import { useRouter } from 'next/navigation';
+import { txStatusStyles } from '@/consts/styles';
 
 const cardIcons: Record<Transaction['card'], string> = {
   mastercard: mastercardImage,
@@ -41,6 +36,8 @@ const formatter = new Intl.NumberFormat('en-US', {
 });
 
 const TransactionPage = () => {
+  const router = useRouter();
+
   const [statusFilter, setStatusFilter] = useState<
     'All' | 'Success' | 'Failed' | 'Pending' | 'Chargeback' | 'Refunded'
   >('All');
@@ -312,15 +309,35 @@ const TransactionPage = () => {
                       <Image src={cardIcons[t.card]} alt={t.card} className="h-5 inline" />
                     </td>
                     <td className="p-2 border-b border-b-gray-200">
-                      <span className={`px-2 py-1 rounded text-xs font-medium ${statusStyles[t.status]} rounded-full`}>
+                      <span
+                        className={`px-2 py-1 rounded text-xs font-medium ${txStatusStyles[t.status]} rounded-full`}
+                      >
                         {t.status}
                       </span>
                     </td>
                     <td className="p-2 font-semibold border-b border-b-gray-200">{`$${formatter.format(t.amount)}`}</td>
                     <td className="p-2 text-gray-500 border-b border-b-gray-200">
-                      <button className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
-                        <MoreHorizontal className="h-4 w-4" />
-                      </button>
+                      <Menu as="div" className="relative inline-block text-left">
+                        <div>
+                          <MenuButton className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
+                            <MoreHorizontal className="h-4 w-4" />
+                          </MenuButton>
+                        </div>
+                        <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white ring-1 ring-gray-300 focus:outline-none cursor-pointer">
+                          <div className="py-1">
+                            <MenuItem>
+                              <button
+                                className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                onClick={() => {
+                                  router.push(`/merchant/transactions/${t.id}`); // this needs to be changed with the local storage key
+                                }}
+                              >
+                                Show Details
+                              </button>
+                            </MenuItem>
+                          </div>
+                        </MenuItems>
+                      </Menu>
                     </td>
                   </tr>
                 ))}

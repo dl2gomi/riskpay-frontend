@@ -16,3 +16,48 @@ export type TransactionData = {
   };
   data: Transaction[];
 };
+
+export type TransactionProduct = {
+  name: string;
+  id: string;
+  imageUrl: string;
+  price: number;
+  quantity: number;
+};
+
+export type TransactionDetail = {
+  id: string;
+  amount: number;
+  status: 'Succeeded' | 'Pending' | 'Failed' | 'Chargeback' | 'Refunded';
+  createdAt: Date;
+  updatedAt: Date;
+  customer: {
+    name: string;
+    email: string;
+  };
+  contact: {
+    email: string;
+    phone: string;
+  };
+  billing: {
+    address: string;
+    name: string;
+  };
+  technical: {
+    ip: string;
+    device: string;
+  };
+  products: TransactionProduct[];
+  generatedBy:
+    | 'Shopify'
+    | 'WooCommerce'
+    | 'Wordpress'
+    | 'Google Tag Manager'
+    | 'Google Analytics'
+    | 'Google Ads'
+    | 'Facebook Ads'
+    | 'TikTok Ads'
+    | 'API Integration'
+    | 'Webhook';
+  paymentMethod: 'Mastercard' | 'Visa';
+};

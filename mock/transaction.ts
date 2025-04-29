@@ -1,4 +1,4 @@
-import { TransactionData } from '@/types';
+import { TransactionData, TransactionDetail } from '@/types';
 
 export const txDataMock: TransactionData = {
   pagination: {
@@ -89,4 +89,53 @@ export const txDataMock: TransactionData = {
       amount: 145.25,
     },
   ],
+};
+
+export const txDetailMock: TransactionDetail = {
+  id: 'jhdgjasdFGrsg45878',
+  amount: 145.25,
+  status: 'Succeeded',
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  customer: {
+    name: 'Nur Hassan',
+    email: 'nursan@gmail.com',
+  },
+  contact: {
+    email: 'meme@gmail.com',
+    phone: '+1 (763) 2183-4555',
+  },
+  billing: {
+    address: 'Delaware, 19709, USA',
+    name: 'Nur Hasan',
+  },
+  technical: {
+    ip: '182.2.64.129',
+    device: 'Mobile (Android 11)',
+  },
+  products: [
+    {
+      name: 'Sports Wear',
+      id: '829d2r99ae9',
+      imageUrl: 'https://picsum.photos/id/227/200/300',
+      price: 20,
+      quantity: 3,
+    },
+    {
+      name: 'T-shirt',
+      id: '129d2r99ae9',
+      imageUrl: 'https://picsum.photos/id/267/200/300',
+      price: 25.25,
+      quantity: 1,
+    },
+    {
+      name: 'Luxury women watch',
+      id: '829d2r999e9',
+      imageUrl: 'https://picsum.photos/id/137/200/300',
+      price: 30,
+      quantity: 2,
+    },
+  ],
+  generatedBy: 'Shopify',
+  paymentMethod: 'Visa',
 };
