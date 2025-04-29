@@ -325,7 +325,12 @@ const TransactionPage = () => {
                     <td className="p-2 text-gray-500 border-b border-b-gray-200">
                       <Menu as="div" className="relative inline-block text-left">
                         <div>
-                          <MenuButton className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
+                          <MenuButton
+                            className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                            }}
+                          >
                             <MoreHorizontal className="h-4 w-4" />
                           </MenuButton>
                         </div>
