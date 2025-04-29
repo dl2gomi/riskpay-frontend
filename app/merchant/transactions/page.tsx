@@ -284,7 +284,13 @@ const TransactionPage = () => {
               {!txLoading &&
                 txData?.data?.length > 0 &&
                 txData?.data.map((t, i) => (
-                  <tr key={i} className="h-10">
+                  <tr
+                    key={i}
+                    className="h-10 hover:bg-gray-50 transition cursor-pointer"
+                    onClick={() => {
+                      router.push(`/merchant/transactions/${t.id}`); // this needs to be changed with the local storage key
+                    }}
+                  >
                     <td className="border-b border-b-gray-200">
                       <input type="checkbox" className="align-middle" />
                     </td>
@@ -328,11 +334,25 @@ const TransactionPage = () => {
                             <MenuItem>
                               <button
                                 className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
-                                onClick={() => {
-                                  router.push(`/merchant/transactions/${t.id}`); // this needs to be changed with the local storage key
-                                }}
+                                onClick={() => {}}
                               >
-                                Show Details
+                                Archive
+                              </button>
+                            </MenuItem>
+                            <MenuItem>
+                              <button
+                                className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                onClick={() => {}}
+                              >
+                                Refund
+                              </button>
+                            </MenuItem>
+                            <MenuItem>
+                              <button
+                                className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                onClick={() => {}}
+                              >
+                                Checkout URL
                               </button>
                             </MenuItem>
                           </div>
