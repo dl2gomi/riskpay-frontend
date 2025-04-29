@@ -50,7 +50,7 @@ const Sidebar = () => {
       <aside
         className={`fixed top-0 left-0 h-screen w-64 bg-white p-4 flex flex-col justify-between z-40 transform transition-transform duration-300 ease-in-out
     ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-    md:translate-x-0 md:h-screen md:transform-none
+    md:translate-x-0 md:h-screen md:transform-none md:shadow-none shadow-2xl
   `}
       >
         <div>
