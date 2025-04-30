@@ -1,0 +1,75 @@
+'use client';
+
+import { DashLayout } from '@/components/layouts';
+import { MoreHorizontal } from 'lucide-react';
+
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+import { Pagination } from '@/components/widgets';
+import { ITEMS_PER_PAGE } from '@/consts/vars';
+import { useApiRequest } from '@/hooks';
+import { transactionsUrl } from '@/consts/paths';
+import Toaster from '@/helpers/Toaster';
+import { Transaction, TransactionData } from '@/types';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { txDataMock } from '@/mock';
+
+import excelIcon from '@/assets/images/icons/excel-export.svg';
+import orderNormalIcon from '@/assets/images/icons/order-normal.svg';
+import orderAscIcon from '@/assets/images/icons/order-asc.svg';
+import orderDescIcon from '@/assets/images/icons/order-desc.svg';
+import { useRouter } from 'next/navigation';
+import { txStatusStyles } from '@/consts/styles';
+import { BusinessSettingsTab } from '@/components/ui';
+
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'decimal',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+const tabs: Record<'business' | 'security' | 'fee', string> = {
+  business: 'Business Details',
+  security: 'Login & Security',
+  fee: 'Account Fees',
+};
+
+const SettingsPage = () => {
+  const router = useRouter();
+
+  const [activeTab, setActiveTab] = useState<'business' | 'security' | 'fee'>('business');
+
+  return (
+    <DashLayout
+      titleArea={
+        <>
+          <h2 className="text-xl font-semibold">Settings</h2>
+        </>
+      }
+    >
+      <div className="px-2 py-4 bg-white rounded-lg">
+        <div className="flex items-center justify-between border-b border-b-gray-200 mx-2 mb-3 pb-2">
+          <div className="flex space-x-4 text-sm font-medium text-gray-900">
+            {['business', 'security', 'fee'].map((tab) => (
+              <div
+                key={tab}
+                className={`${
+                  activeTab === tab ? 'text-red-600' : 'cursor-pointer hover:text-gray-500'
+                } transition-colors duration-200 ease-in-out`}
+                onClick={() => setActiveTab(tab as 'business' | 'security' | 'fee')}
+              >
+                {tabs[tab as 'business' | 'security' | 'fee']}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="max-w-4xl px-2">
+          <BusinessSettingsTab />
+        </div>
+      </div>
+    </DashLayout>
+  );
+};
+
+export default SettingsPage;
