@@ -8,6 +8,7 @@ import { useApiRequest } from '@/hooks';
 import { notiUrl } from '@/consts/paths';
 import { Notification } from '@/types';
 import { mockNotiData } from '@/mock';
+import Image from 'next/image';
 
 const DashLayout: React.FC<{ children: ReactNode; titleArea: ReactNode; tools?: ReactNode }> = ({
   children,
@@ -16,7 +17,8 @@ const DashLayout: React.FC<{ children: ReactNode; titleArea: ReactNode; tools?: 
 }) => {
   const userInfo = {
     name: 'Nur Hasan',
-    role: 'Merchant',
+    avatar: 'https://ui-avatars.com/api/?name=Nur%20Hasan',
+    // role: 'Merchant',
   }; // this needs to be changed using local stroage interacted with backend
 
   const [notiShow, setNotiShow] = useState(false);
@@ -112,14 +114,13 @@ const DashLayout: React.FC<{ children: ReactNode; titleArea: ReactNode; tools?: 
                 </div>
               )}
             </div>
-            <div className="md:flex items-center gap-2 text-sm hidden">
-              <div className="bg-gray-300 w-8 h-8 rounded-full" />
+            <Link className="md:flex items-center gap-2 text-sm hidden cursor-pointer" href="/merchant/settings">
+              <Image src={userInfo.avatar} alt="User Avatar" width={40} height={40} className="rounded-full" />
               <div>
                 <p className="font-medium truncate">{userInfo.name}</p>
-                <p className="text-gray-500 truncate">{userInfo.role}</p>
+                {/* <p className="text-gray-500 truncate">{userInfo.role}</p> */}
               </div>
-              <ChevronDown className="w-4 h-4" />
-            </div>
+            </Link>
           </div>
         </div>
         {children}

@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
@@ -13,12 +13,14 @@ import integIcon from '@/assets/images/icons/integrations.svg';
 import balanceIcon from '@/assets/images/icons/balance.svg';
 import settingsIcon from '@/assets/images/icons/settings.svg';
 import logoutIcon from '@/assets/images/icons/logout.svg';
-import { Menu, X } from 'lucide-react';
+import { CheckCircle, Menu, X } from 'lucide-react';
 
 const Sidebar = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const [currentTab, setCurrentTab] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [showConfirmModal, setConfirmModal] = useState(false);
 
   useEffect(() => {
     if (pathname) {
@@ -99,9 +101,51 @@ const Sidebar = () => {
             label="Settings"
             active={currentTab === 'settings'}
           />
-          <SidebarLink href="/merchant/logout" icon={logoutIcon} label="Log Out" active={false} className="md:hidden" />
+          <button className="block px-3 py-2 rounded-lg cursor-pointer" onClick={() => setConfirmModal(true)}>
+            <div className="flex items-center gap-3 text-sm font-medium">
+              <Image src={logoutIcon} alt={`Logout Icon`} width={16} height={16} /> Log Out
+            </div>
+          </button>
         </div>
       </aside>
+      {showConfirmModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#0008]"
+          onClick={() => setConfirmModal(false)}
+        >
+          <div className="bg-white p-6 rounded-lg w-full max-w-sm space-y-4">
+            <div className="flex justify-center text-center items-center py-4 font-semibold text-xl">
+              Are you sure to log out?
+            </div>
+            <div className="max-w-xl w-full space-y-4">
+              <div className="grid grid-cols-2 gap-4 pt-6">
+                <button
+                  className="bg-red-100 text-red-600 font-semibold py-2 rounded-md hover:bg-red-200 transition cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setConfirmModal(false);
+                  }}
+                >
+                  Back
+                </button>
+                <button
+                  className="bg-red-600 text-white font-semibold py-2 rounded-md hover:bg-red-500 transition cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setConfirmModal(false);
+
+                    // need to add code for removing local storage and redirecting to home page
+
+                    router.push('/');
+                  }}
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
