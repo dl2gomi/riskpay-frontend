@@ -3,12 +3,18 @@
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { ChevronDownIcon, CreditCard, Repeat } from 'lucide-react';
 import { useState } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import rebillImg from '@/assets/images/icons/rebill.svg';
 import cardPayImg from '@/assets/images/icons/cardpay.svg';
 
-const FeeCard = ({ icon, title, subtitle, priceLabel, priceInfo }) => (
+const FeeCard: React.FC<{
+  icon: StaticImageData;
+  title: string;
+  subtitle: string;
+  priceLabel: string;
+  priceInfo: string;
+}> = ({ icon, title, subtitle, priceLabel, priceInfo }) => (
   <div className="grid grid-cols-1 lg:grid-cols-2 items-center border border-gray-500 rounded-lg p-5 hover:shadow-md transition">
     <div className="flex items-center gap-4 py-4 border-b lg:border-b-0 lg:border-r border-gray-500">
       <Image src={icon} alt="icon" className="bg-red-100 text-red-600 w-10 h-10 rounded-lg text-xl" />
