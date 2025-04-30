@@ -21,7 +21,7 @@ import orderAscIcon from '@/assets/images/icons/order-asc.svg';
 import orderDescIcon from '@/assets/images/icons/order-desc.svg';
 import { useRouter } from 'next/navigation';
 import { txStatusStyles } from '@/consts/styles';
-import { BusinessSettingsTab } from '@/components/ui';
+import { BusinessSettingsTab, FeeSettingsTab } from '@/components/ui';
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'decimal',
@@ -65,7 +65,8 @@ const SettingsPage = () => {
           </div>
         </div>
         <div className="max-w-4xl px-2">
-          <BusinessSettingsTab />
+          {activeTab === 'business' && <BusinessSettingsTab />}
+          {activeTab === 'fee' && <FeeSettingsTab />}
         </div>
       </div>
     </DashLayout>
