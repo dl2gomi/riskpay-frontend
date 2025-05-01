@@ -17,3 +17,6 @@ export const webhooksUrl = `${apiBaseUrl}/webhooks`;
 export const payoutsUrl = `${apiBaseUrl}/payouts`;
 export const payoutDetailUrl = `${apiBaseUrl}/payouts`;
 export const payoutAccountsUrl = `${apiBaseUrl}/payouts/accounts`;
+
+// settings
+export const tfaStatusUrl = `${apiBaseUrl}/settings/tfa/status`;
