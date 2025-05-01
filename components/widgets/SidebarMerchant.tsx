@@ -120,7 +120,7 @@ const Sidebar = () => {
             <div className="max-w-xl w-full space-y-4">
               <div className="grid grid-cols-2 gap-4 pt-6">
                 <button
-                  className="bg-red-100 text-red-600 font-semibold py-2 rounded-md hover:bg-red-200 transition cursor-pointer"
+                  className="bg-blue-100 text-blue-600 font-semibold py-2 rounded-md hover:bg-blue-200 transition cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     setConfirmModal(false);
@@ -129,7 +129,7 @@ const Sidebar = () => {
                   Back
                 </button>
                 <button
-                  className="bg-red-600 text-white font-semibold py-2 rounded-md hover:bg-red-500 transition cursor-pointer"
+                  className="bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-500 transition cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     setConfirmModal(false);
@@ -165,7 +165,7 @@ const SidebarLink = ({
 }) => (
   <Link
     href={href}
-    className={`block px-3 py-2 rounded-lg cursor-pointer ${active ? 'bg-red-100' : ''} ${className ?? ''}`}
+    className={`block px-3 py-2 rounded-lg cursor-pointer ${active ? 'bg-blue-100' : ''} ${className ?? ''}`}
   >
     <div className="flex items-center gap-3 text-sm font-medium">
       <Image src={icon} alt={`${label} Icon`} width={16} height={16} /> {label}

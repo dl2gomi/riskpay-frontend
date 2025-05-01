@@ -24,7 +24,7 @@ const ProfileTab = () => {
         <div className="">
           <button
             className={`flex items-center w-full text-left px-4 py-2  gap-2 rounded-md font-medium text-[14px] cursor-pointer h-10 ${
-              slot === 'profile' ? 'bg-red-100 text-red-600' : 'text-gray-900'
+              slot === 'profile' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'
             }`}
             onClick={() => setSlot('profile')}
           >
@@ -33,7 +33,7 @@ const ProfileTab = () => {
           </button>
           <button
             className={`flex items-center w-full text-left px-4 py-2  gap-2 rounded-md font-medium text-[14px] cursor-pointer h-10 ${
-              slot === '2fa' ? 'bg-red-100 text-red-600' : 'text-gray-900'
+              slot === '2fa' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'
             }`}
             onClick={() => setSlot('2fa')}
           >
@@ -42,7 +42,7 @@ const ProfileTab = () => {
           </button>
           <button
             className={`flex items-center w-full text-left px-4 py-2  gap-2 rounded-md font-medium text-[14px] cursor-pointer h-10 ${
-              slot === 'delete' ? 'bg-red-100 text-red-600' : 'text-gray-900'
+              slot === 'delete' ? 'bg-blue-100 text-blue-600' : 'text-gray-900'
             }`}
             onClick={() => setSlot('delete')}
           >

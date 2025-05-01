@@ -106,7 +106,7 @@ const AccountsPage = () => {
           <div className="flex space-x-4 text-sm font-medium text-gray-900">
             <div
               className={`${
-                typeFilter === 'bank' ? 'text-red-600' : 'cursor-pointer hover:text-gray-500'
+                typeFilter === 'bank' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out truncate`}
               onClick={() => setTypeFilter('bank')}
             >
@@ -114,7 +114,7 @@ const AccountsPage = () => {
             </div>
             <div
               className={`${
-                typeFilter === 'crypto' ? 'text-red-600' : 'cursor-pointer hover:text-gray-500'
+                typeFilter === 'crypto' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out truncate`}
               onClick={() => setTypeFilter('crypto')}
             >
@@ -123,7 +123,7 @@ const AccountsPage = () => {
           </div>
           {typeFilter === 'bank' && (
             <button
-              className="flex items-center gap-2 bg-red-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400 truncate"
+              className="flex items-center gap-2 bg-blue-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400 truncate"
               onClick={() => {
                 setCurrentBank({});
                 setShowBankModal(true);
@@ -135,7 +135,7 @@ const AccountsPage = () => {
           )}
           {typeFilter === 'crypto' && (
             <button
-              className="flex items-center gap-2 bg-red-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-red-400 truncate"
+              className="flex items-center gap-2 bg-blue-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400 truncate"
               onClick={() => setShowCryptoModal(true)}
             >
               <PlusIcon className="w-4 h-4" />
@@ -266,7 +266,7 @@ const AccountsPage = () => {
                   <div className="w-full">
                     <Listbox value={currency} onChange={setCurrency}>
                       <div className="relative">
-                        <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                           {currency?.toUpperCase() || 'Please select'}
                           <ChevronDownIcon className="w-4 h-4 text-gray-400" />
                         </ListboxButton>
@@ -275,7 +275,7 @@ const AccountsPage = () => {
                             value="usd"
                             className={({ active }) =>
                               `cursor-pointer select-none px-4 py-2 ${
-                                active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                                active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                               }`
                             }
                           >
@@ -285,7 +285,7 @@ const AccountsPage = () => {
                             value="euro"
                             className={({ active }) =>
                               `cursor-pointer select-none px-4 py-2 ${
-                                active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                                active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                               }`
                             }
                           >
@@ -301,7 +301,7 @@ const AccountsPage = () => {
                   <div className="w-full">
                     <Listbox value={country} onChange={setCountry}>
                       <div className="relative">
-                        <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                           {country || 'Please select'}
                           <ChevronDownIcon className="w-4 h-4 text-gray-400" />
                         </ListboxButton>
@@ -310,7 +310,7 @@ const AccountsPage = () => {
                             value="USA"
                             className={({ active }) =>
                               `cursor-pointer select-none px-4 py-2 ${
-                                active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                                active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                               }`
                             }
                           >
@@ -320,7 +320,7 @@ const AccountsPage = () => {
                             value="UK"
                             className={({ active }) =>
                               `cursor-pointer select-none px-4 py-2 ${
-                                active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                                active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                               }`
                             }
                           >
@@ -336,7 +336,7 @@ const AccountsPage = () => {
                   <input
                     type="text"
                     placeholder="Enter Account Number"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={accNum}
                     onChange={(e) => setAccNum(e.target.value)}
                   />
@@ -346,7 +346,7 @@ const AccountsPage = () => {
                   <input
                     type="text"
                     placeholder="Retype Account Number"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={accNumConf}
                     onChange={(e) => setAccNumConf(e.target.value)}
                   />
@@ -356,7 +356,7 @@ const AccountsPage = () => {
                   <input
                     type="text"
                     placeholder="Enter IBAN Number"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={iban}
                     onChange={(e) => setIban(e.target.value)}
                   />
@@ -366,7 +366,7 @@ const AccountsPage = () => {
                   <input
                     type="text"
                     placeholder="Enter Swift Code"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={swift}
                     onChange={(e) => setSwift(e.target.value)}
                   />
@@ -376,7 +376,7 @@ const AccountsPage = () => {
                   <input
                     type="text"
                     placeholder="Enter Routing Code"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={routing}
                     onChange={(e) => setRouting(e.target.value)}
                   />
@@ -419,10 +419,10 @@ const AccountsPage = () => {
                 </label>
               </div>
               <div className="flex gap-4 pt-6 justify-center">
-                <button className="bg-red-50 text-red-600 font-semibold w-42 py-2 rounded-md hover:bg-red-100  transition cursor-pointer">
+                <button className="bg-blue-50 text-blue-600 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
                   Cancel
                 </button>
-                <button className="bg-red-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-red-500 transition cursor-pointer">
+                <button className="bg-blue-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
                   Save
                 </button>
               </div>
@@ -459,7 +459,7 @@ const AccountsPage = () => {
                   <input
                     type="text"
                     placeholder="Enter Account Number"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={crAccount}
                     onChange={(e) => setCrAccount(e.target.value)}
                   />
@@ -469,7 +469,7 @@ const AccountsPage = () => {
                   <div className="w-full">
                     <Listbox value={crChannel} onChange={setCrChannel}>
                       <div className="relative">
-                        <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                           {crChannel?.toUpperCase() || 'Please select'}
                           <ChevronDownIcon className="w-4 h-4 text-gray-400" />
                         </ListboxButton>
@@ -478,7 +478,7 @@ const AccountsPage = () => {
                             value="erc20-usdt"
                             className={({ active }) =>
                               `cursor-pointer select-none px-4 py-2 ${
-                                active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                                active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                               }`
                             }
                           >
@@ -488,7 +488,7 @@ const AccountsPage = () => {
                             value="trc20-usdt"
                             className={({ active }) =>
                               `cursor-pointer select-none px-4 py-2 ${
-                                active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                                active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                               }`
                             }
                           >
@@ -504,7 +504,7 @@ const AccountsPage = () => {
                   <input
                     type="text"
                     placeholder="Enter Wallet Address"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={crAddress}
                     onChange={(e) => setCrAddress(e.target.value)}
                   />
@@ -514,7 +514,7 @@ const AccountsPage = () => {
                   <input
                     type="text"
                     placeholder="Retype Wallet Address"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={crAddressConf}
                     onChange={(e) => setCrAddressConf(e.target.value)}
                   />
@@ -557,10 +557,10 @@ const AccountsPage = () => {
                 </label>
               </div>
               <div className="flex gap-4 pt-6 justify-center">
-                <button className="bg-red-50 text-red-600 font-semibold w-42 py-2 rounded-md hover:bg-red-100  transition cursor-pointer">
+                <button className="bg-blue-50 text-blue-600 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
                   Cancel
                 </button>
-                <button className="bg-red-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-red-500 transition cursor-pointer">
+                <button className="bg-blue-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
                   Save
                 </button>
               </div>

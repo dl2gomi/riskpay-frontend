@@ -55,7 +55,7 @@ const SettingsPage = () => {
               <div
                 key={tab}
                 className={`${
-                  activeTab === tab ? 'text-red-600' : 'cursor-pointer hover:text-gray-500'
+                  activeTab === tab ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
                 } transition-colors duration-200 ease-in-out`}
                 onClick={() => setActiveTab(tab as 'business' | 'security' | 'fee')}
               >

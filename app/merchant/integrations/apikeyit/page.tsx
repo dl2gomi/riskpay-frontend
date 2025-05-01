@@ -59,7 +59,7 @@ const ApiKeyIntegrationPage = () => {
               checked={!viewingTestData}
               onChange={() => setViewingTestData(!viewingTestData)}
               className={`${
-                viewingTestData ? 'bg-gray-200' : 'bg-red-600'
+                viewingTestData ? 'bg-gray-200' : 'bg-blue-600'
               } relative inline-flex h-5 w-10 items-center rounded-full transition cursor-pointer`}
             >
               <span
@@ -76,7 +76,7 @@ const ApiKeyIntegrationPage = () => {
           <h2 className="text-base font-semibold text-gray-800 mb-1">Standard Key</h2>
           <p className="text-sm text-gray-600">
             These keys will allow you to authenticate API request.{' '}
-            <Link href="/merchant/help" className="text-red-500 cursor-pointer">
+            <Link href="/merchant/help" className="text-blue-500 cursor-pointer">
               Learn more
             </Link>
           </p>
@@ -118,7 +118,7 @@ const ApiKeyIntegrationPage = () => {
         </div>
 
         <div className="flex gap-2 pt-4">
-          <button className="bg-[#DE0707] hover:bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">
+          <button className="bg-[#DE0707] hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">
             Reset Publishable Key
           </button>
           <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">

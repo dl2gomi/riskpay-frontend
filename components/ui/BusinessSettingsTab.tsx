@@ -36,7 +36,7 @@ const BusinessTab = () => {
             type="text"
             value={companyName}
             placeholder="Enter your company name"
-            className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md p-2"
+            className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2"
             onChange={(e) => setCompanyName(e.target.value)}
           />
         </div>
@@ -44,7 +44,7 @@ const BusinessTab = () => {
           <label className="block mb-1 font-medium">Business Type</label>
           <Listbox value={businessType} onChange={setBusinessType}>
             <div className="relative">
-              <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+              <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                 {businessType || 'Please select'}
                 <ChevronDownIcon className="w-4 h-4 text-gray-400" />
               </ListboxButton>
@@ -52,7 +52,7 @@ const BusinessTab = () => {
                 <ListboxOption
                   value="Shop"
                   className={({ active }) =>
-                    `cursor-pointer select-none px-4 py-2 ${active ? 'bg-red-100 text-red-900' : 'text-gray-900'}`
+                    `cursor-pointer select-none px-4 py-2 ${active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'}`
                   }
                 >
                   Shop
@@ -60,7 +60,7 @@ const BusinessTab = () => {
                 <ListboxOption
                   value="Data Center"
                   className={({ active }) =>
-                    `cursor-pointer select-none px-4 py-2 ${active ? 'bg-red-100 text-red-900' : 'text-gray-900'}`
+                    `cursor-pointer select-none px-4 py-2 ${active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'}`
                   }
                 >
                   Data Center
@@ -74,7 +74,7 @@ const BusinessTab = () => {
           <label className="block mb-1 font-medium">Industry</label>
           <Listbox value={industry} onChange={setIndustry}>
             <div className="relative">
-              <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+              <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                 {industry || 'Please select'}
                 <ChevronDownIcon className="w-4 h-4 text-gray-400" />
               </ListboxButton>
@@ -82,7 +82,7 @@ const BusinessTab = () => {
                 <ListboxOption
                   value="Education"
                   className={({ active }) =>
-                    `cursor-pointer select-none px-4 py-2 ${active ? 'bg-red-100 text-red-900' : 'text-gray-900'}`
+                    `cursor-pointer select-none px-4 py-2 ${active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'}`
                   }
                 >
                   Education
@@ -90,7 +90,7 @@ const BusinessTab = () => {
                 <ListboxOption
                   value="Healthcare"
                   className={({ active }) =>
-                    `cursor-pointer select-none px-4 py-2 ${active ? 'bg-red-100 text-red-900' : 'text-gray-900'}`
+                    `cursor-pointer select-none px-4 py-2 ${active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'}`
                   }
                 >
                   Healthcare
@@ -104,7 +104,7 @@ const BusinessTab = () => {
           <input
             type="text"
             placeholder="example: www.company.com"
-            className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md p-2"
+            className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2"
             value={website}
             onChange={(e) => setWebsite(e.target.value)}
           />
@@ -119,7 +119,7 @@ const BusinessTab = () => {
             <label className="block mb-1 font-medium">Country</label>
             <Listbox value={country} onChange={setCountry}>
               <div className="relative">
-                <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                   {country || 'Please select'}
                   <ChevronDownIcon className="w-4 h-4 text-gray-400" />
                 </ListboxButton>
@@ -127,7 +127,7 @@ const BusinessTab = () => {
                   <ListboxOption
                     value="USA"
                     className={({ active }) =>
-                      `cursor-pointer select-none px-4 py-2 ${active ? 'bg-red-100 text-red-900' : 'text-gray-900'}`
+                      `cursor-pointer select-none px-4 py-2 ${active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'}`
                     }
                   >
                     USA
@@ -135,7 +135,7 @@ const BusinessTab = () => {
                   <ListboxOption
                     value="UK"
                     className={({ active }) =>
-                      `cursor-pointer select-none px-4 py-2 ${active ? 'bg-red-100 text-red-900' : 'text-gray-900'}`
+                      `cursor-pointer select-none px-4 py-2 ${active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'}`
                     }
                   >
                     UK
@@ -149,7 +149,7 @@ const BusinessTab = () => {
             <input
               type="text"
               placeholder="Enter your street address"
-              className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md p-2"
+              className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2"
               value={street}
               onChange={(e) => setStreet(e.target.value)}
             />
@@ -159,7 +159,7 @@ const BusinessTab = () => {
             <input
               type="text"
               placeholder="Enter your town or city"
-              className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md p-2"
+              className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2"
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
@@ -169,7 +169,7 @@ const BusinessTab = () => {
             <input
               type="text"
               placeholder="Enter your postal code"
-              className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-md p-2"
+              className="w-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2"
               value={postalCode}
               onChange={(e) => setPostalCode(e.target.value)}
             />
@@ -179,7 +179,7 @@ const BusinessTab = () => {
 
       {/* Save Button */}
       <div className="mt-6">
-        <button className="bg-red-600 text-white py-2 px-6 rounded-md hover:bg-red-500 transition cursor-pointer">
+        <button className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-500 transition cursor-pointer">
           Save Changes
         </button>
       </div>

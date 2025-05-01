@@ -41,7 +41,7 @@ const IntegrationPage = () => {
                       <h3 className="font-bold text-sm text-gray-800">{item.name}</h3>
                       <p className="text-xs text-gray-500 mb-3 mt-1">{item.description}</p>
                     </div>
-                    <button className="text-red-500 text-sm font-semibold flex items-center gap-1 cursor-pointer">
+                    <button className="text-blue-500 text-sm font-semibold flex items-center gap-1 cursor-pointer">
                       Connect Now <span>→</span>
                     </button>
                   </div>

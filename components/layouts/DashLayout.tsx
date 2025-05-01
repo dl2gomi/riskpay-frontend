@@ -83,7 +83,7 @@ const DashLayout: React.FC<{ children: ReactNode; titleArea: ReactNode; tools?: 
               >
                 <Bell className="w-5 h-5" />
                 {notiList.length > 0 && (
-                  <span className="absolute top-1 right-[7px] block h-2 w-2 rounded-full bg-red-500" />
+                  <span className="absolute top-1 right-[7px] block h-2 w-2 rounded-full bg-blue-500" />
                 )}
               </button>
               {notiShow && (

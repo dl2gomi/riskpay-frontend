@@ -47,7 +47,7 @@ const PixelIntegrationPage = () => {
               type="text"
               placeholder="Enter name"
               value={name}
-              className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -57,7 +57,7 @@ const PixelIntegrationPage = () => {
             <input
               type="text"
               placeholder="Enter pixel ID"
-              className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={pixelID}
               onChange={(e) => setPixelID(e.target.value)}
             />
@@ -68,17 +68,17 @@ const PixelIntegrationPage = () => {
             <input
               type="text"
               placeholder="Enter conversion API"
-              className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={conversionApi}
               onChange={(e) => setConversionApi(e.target.value)}
             />
           </div>
 
           <div className="flex gap-4 pt-2">
-            <button className="bg-red-50 text-red-600 font-semibold px-12 py-2 rounded-md hover:bg-red-100  transition cursor-pointer">
+            <button className="bg-blue-50 text-blue-600 font-semibold px-12 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
               Cancel
             </button>
-            <button className="bg-red-600 text-white font-semibold px-12 py-2 rounded-md hover:bg-red-500 transition cursor-pointer">
+            <button className="bg-blue-600 text-white font-semibold px-12 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
               Create
             </button>
           </div>

@@ -25,7 +25,7 @@ const ProfileSlot = () => {
             <input
               type="text"
               defaultValue="Nur Hasan Nishad"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
@@ -34,7 +34,7 @@ const ProfileSlot = () => {
               <div className="inline-flex items-center cursor-pointer w-34">
                 <Listbox value={country} onChange={setCountry}>
                   <div className="relative">
-                    <ListboxButton className="w-full border cursor-pointer border-r-0 border-gray-300 rounded-l-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <ListboxButton className="w-full border cursor-pointer border-r-0 border-gray-300 rounded-l-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                       <div className="flex items-center justify-start cursor-pointer">
                         <Image
                           src={`https://flagcdn.com/32x24/${country}.png`}
@@ -53,7 +53,7 @@ const ProfileSlot = () => {
                           value={c.toLowerCase()}
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -75,11 +75,11 @@ const ProfileSlot = () => {
               <input
                 type="text"
                 placeholder="125 568 5896"
-                className="w-full border border-gray-300 rounded-r px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full border border-gray-300 rounded-r px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
-          <button className="bg-red-600 hover:bg-red-500 transition text-white rounded px-8 py-2 cursor-pointer">
+          <button className="bg-blue-600 hover:bg-blue-500 transition text-white rounded px-8 py-2 cursor-pointer">
             Save
           </button>
         </div>
@@ -96,7 +96,7 @@ const ProfileSlot = () => {
             <input
               type="password"
               placeholder="Password"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
@@ -104,7 +104,7 @@ const ProfileSlot = () => {
             <input
               type="password"
               placeholder="Password"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
@@ -112,10 +112,10 @@ const ProfileSlot = () => {
             <input
               type="password"
               placeholder="Password"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <button className="bg-red-600 hover:bg-red-500 transition cursor-pointer text-white rounded px-4 py-2">
+          <button className="bg-blue-600 hover:bg-blue-500 transition cursor-pointer text-white rounded px-4 py-2">
             Update Password
           </button>
         </div>
@@ -132,7 +132,7 @@ const ProfileSlot = () => {
             <input
               type="email"
               placeholder="Enter your old email address"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
@@ -140,10 +140,10 @@ const ProfileSlot = () => {
             <input
               type="email"
               placeholder="Enter your new email address"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <button className="bg-red-600 hover:bg-red-500 transition cursor-pointer text-white rounded px-4 py-2">
+          <button className="bg-blue-600 hover:bg-blue-500 transition cursor-pointer text-white rounded px-4 py-2">
             Change Email Address
           </button>
         </div>

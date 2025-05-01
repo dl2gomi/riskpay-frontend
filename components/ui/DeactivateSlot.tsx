@@ -34,7 +34,7 @@ const DeactivateSlot = () => {
               value={item}
               checked={reason === item}
               onChange={() => setReason(item)}
-              className="accent-red-600 cursor-pointer"
+              className="accent-blue-600 cursor-pointer"
             />
             <span className="text-gray-700">{item}</span>
           </label>
@@ -44,7 +44,7 @@ const DeactivateSlot = () => {
       <p className="text-gray-600 mb-2 text-sm">
         We value your feedback, but please note that we aren’t able to respond to comments about your account submitted
         in this form. If you have a question or request about your account that requires attention, please contact us{' '}
-        <Link href="/contact-us" className="text-red-600 underline">
+        <Link href="/contact-us" className="text-blue-600 underline">
           here
         </Link>
         .
@@ -55,10 +55,10 @@ const DeactivateSlot = () => {
         placeholder=""
         value={feedback}
         onChange={(e) => setFeedback(e.target.value)}
-        className="w-full p-3 border border-gray-300 text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent mb-4"
+        className="w-full p-3 border border-gray-300 text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"
       />
 
-      <button className="bg-red-600 text-white py-2 rounded-md hover:bg-red-500 transition cursor-pointer px-8">
+      <button className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-500 transition cursor-pointer px-8">
         Deactivate Account
       </button>
     </div>

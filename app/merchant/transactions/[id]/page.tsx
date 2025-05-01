@@ -112,7 +112,7 @@ const TransactionDetailPage = () => {
               </div>
               <div className="">
                 <button
-                  className="bg-red-600 text-white text-sm px-4 py-2 rounded-md flex items-center gap-2 cursor-pointer"
+                  className="bg-blue-600 text-white text-sm px-4 py-2 rounded-md flex items-center gap-2 cursor-pointer"
                   onClick={() => setMenuOpen(!menuOpen)}
                 >
                   Action {menuOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}

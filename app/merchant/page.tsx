@@ -148,7 +148,7 @@ const Dashboard = () => {
                   </p>
                 )}
                 {(orderOverview?.gross?.delta ?? 0) < 0 && (
-                  <p className="text-red-500 text-xs bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-blue-500 text-xs bg-blue-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▼ {orderOverview?.gross?.delta}%
                   </p>
                 )}
@@ -166,7 +166,7 @@ const Dashboard = () => {
                   </p>
                 )}
                 {(orderOverview?.paidOrder?.delta ?? 0) < 0 && (
-                  <p className="text-red-500 text-xs bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-blue-500 text-xs bg-blue-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▼ {orderOverview?.paidOrder?.delta}%
                   </p>
                 )}
@@ -184,7 +184,7 @@ const Dashboard = () => {
                   </p>
                 )}
                 {(orderOverview?.averageSucceedOrder?.delta ?? 0) < 0 && (
-                  <p className="text-red-500 text-xs bg-red-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
+                  <p className="text-blue-500 text-xs bg-blue-100 px-2 rounded-xl truncate overflow-hidden whitespace-nowrap">
                     ▼ {orderOverview?.averageSucceedOrder?.delta}%
                   </p>
                 )}

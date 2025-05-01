@@ -92,7 +92,7 @@ const WebhookIntegrationPage = () => {
             Back
           </Link>
           <button
-            className="flex items-center gap-2 bg-red-600 text-white text-sm px-4 py-2 rounded-md hover:bg-red-500 transition cursor-pointer"
+            className="flex items-center gap-2 bg-blue-600 text-white text-sm px-4 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer"
             onClick={() => setShowModal(true)}
           >
             <PlusIcon className="w-4 h-4" />
@@ -193,7 +193,7 @@ const WebhookIntegrationPage = () => {
                             </MenuItem>
                             <MenuItem>
                               <button
-                                className="hover:bg-gray-100 hover:text-red-500 text-red-600 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                className="hover:bg-gray-100 hover:text-blue-500 text-blue-600 w-full px-4 py-2 text-left text-sm cursor-pointer"
                                 onClick={() => {}}
                               >
                                 Delete
@@ -242,7 +242,7 @@ const WebhookIntegrationPage = () => {
                 <div className="w-full">
                   <Listbox value={type} onChange={setType}>
                     <div className="relative">
-                      <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                      <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                         {type || 'Please select'}
                         <ChevronDownIcon className="w-4 h-4 text-gray-400" />
                       </ListboxButton>
@@ -251,7 +251,7 @@ const WebhookIntegrationPage = () => {
                           value="success"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -261,7 +261,7 @@ const WebhookIntegrationPage = () => {
                           value="failed"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -271,7 +271,7 @@ const WebhookIntegrationPage = () => {
                           value="pending"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -281,7 +281,7 @@ const WebhookIntegrationPage = () => {
                           value="refund"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -291,7 +291,7 @@ const WebhookIntegrationPage = () => {
                           value="chargeback"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -301,7 +301,7 @@ const WebhookIntegrationPage = () => {
                           value="dispute"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -317,7 +317,7 @@ const WebhookIntegrationPage = () => {
                 <div className="w-full">
                   <Listbox value={event} onChange={setEvent}>
                     <div className="relative">
-                      <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                      <ListboxButton className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm text-gray-500 bg-white flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
                         {event || 'Please select'}
                         <ChevronDownIcon className="w-4 h-4 text-gray-400" />
                       </ListboxButton>
@@ -326,7 +326,7 @@ const WebhookIntegrationPage = () => {
                           value="Payment"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -336,7 +336,7 @@ const WebhookIntegrationPage = () => {
                           value="Subscription"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -346,7 +346,7 @@ const WebhookIntegrationPage = () => {
                           value="Order"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -356,7 +356,7 @@ const WebhookIntegrationPage = () => {
                           value="Payout"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -366,7 +366,7 @@ const WebhookIntegrationPage = () => {
                           value="Customer"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -376,7 +376,7 @@ const WebhookIntegrationPage = () => {
                           value="Merchant"
                           className={({ active }) =>
                             `cursor-pointer select-none px-4 py-2 ${
-                              active ? 'bg-red-100 text-red-900' : 'text-gray-900'
+                              active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
                             }`
                           }
                         >
@@ -392,17 +392,17 @@ const WebhookIntegrationPage = () => {
                 <input
                   type="text"
                   placeholder="HTTPS URL is recommended"
-                  className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full border border-gray-200 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   value={newUrl}
                   onChange={(e) => setNewUrl(e.target.value)}
                 />
               </div>
 
               <div className="flex gap-4 pt-6 justify-center">
-                <button className="bg-red-50 text-red-600 font-semibold w-42 py-2 rounded-md hover:bg-red-100  transition cursor-pointer">
+                <button className="bg-blue-50 text-blue-600 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
                   Cancel
                 </button>
-                <button className="bg-red-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-red-500 transition cursor-pointer">
+                <button className="bg-blue-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
                   Save Webhook
                 </button>
               </div>

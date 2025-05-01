@@ -70,7 +70,7 @@ const TFASlot = () => {
       <div className="space-y-3 flex flex-col">
         <button
           disabled={statusLoading}
-          className={`w-80 max-w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-2 text-sm font-medium hover:bg-red-100 transition ${
+          className={`w-80 max-w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-2 text-sm font-medium hover:bg-blue-100 transition ${
             statusLoading ? 'cursor-not-allowed' : 'cursor-pointer'
           }`}
         >
@@ -82,7 +82,7 @@ const TFASlot = () => {
         </button>
         <button
           disabled={statusLoading}
-          className={`w-80 max-w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-2 text-sm font-medium hover:bg-red-100 transition ${
+          className={`w-80 max-w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-2 text-sm font-medium hover:bg-blue-100 transition ${
             statusLoading ? 'cursor-not-allowed' : 'cursor-pointer'
           }`}
         >
@@ -93,7 +93,7 @@ const TFASlot = () => {
         </button>
         <button
           disabled={statusLoading}
-          className={`w-80 max-w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-2 text-sm font-medium hover:bg-red-100 transition ${
+          className={`w-80 max-w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-2 text-sm font-medium hover:bg-blue-100 transition ${
             statusLoading ? 'cursor-not-allowed' : 'cursor-pointer'
           }`}
         >
