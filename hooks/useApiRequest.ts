@@ -13,7 +13,7 @@ interface UseApiRequestResponse<T extends { message?: string; data?: any; [key: 
   response: T | null;
   error: T | null;
   loading: boolean;
-  sendRequest: () => void;
+  sendRequest: (dynData?: object, dynParams?: object) => Promise<void>;
 }
 
 export const useApiRequest = <T extends { message?: string; data?: any; [key: string]: any }>({

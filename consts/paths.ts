@@ -20,3 +20,8 @@ export const payoutAccountsUrl = `${apiBaseUrl}/payouts/accounts`;
 
 // settings
 export const tfaStatusUrl = `${apiBaseUrl}/settings/tfa/status`;
+export const profileUrl = `${apiBaseUrl}/settings/profile`;
+export const profileOTPUrl = `${apiBaseUrl}/settings/profile/otp`;
+export const passwordChangeUrl = `${apiBaseUrl}/settings/profile/changepassword`;
+export const emailChangeUrl = `${apiBaseUrl}/settings/profile/changemail`;
+export const mailOTPUrl = `${apiBaseUrl}/settings/profile/otpmail`;
