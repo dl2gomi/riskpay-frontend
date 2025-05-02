@@ -179,7 +179,7 @@ const BusinessTab = () => {
 
       {/* Save Button */}
       <div className="mt-6">
-        <button className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-500 transition cursor-pointer">
+        <button className="hover:bg-blue-600 text-white py-2 px-6 rounded-md bg-blue-500 transition cursor-pointer">
           Save Changes
         </button>
       </div>

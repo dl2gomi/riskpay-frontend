@@ -88,7 +88,7 @@ const TransactionDetailPage = () => {
         </div>
         {txLoading && (
           <div className="flex items-center justify-center flex-col p-6 bg-white rounded-lg space-y-6 h-[240px]">
-            <SpinnerCircular color="#0707DE" secondaryColor="#9999FF" />
+            <SpinnerCircular color="#006aff" secondaryColor="#66AAFF" />
             <div className="text-gray-600">Loading...</div>
           </div>
         )}
@@ -112,7 +112,7 @@ const TransactionDetailPage = () => {
               </div>
               <div className="">
                 <button
-                  className="bg-blue-600 text-white text-sm px-4 py-2 rounded-md flex items-center gap-2 cursor-pointer"
+                  className="hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-md flex items-center gap-2 cursor-pointer"
                   onClick={() => setMenuOpen(!menuOpen)}
                 >
                   Action {menuOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}

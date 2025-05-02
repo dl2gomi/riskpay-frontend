@@ -64,7 +64,7 @@ const RawSettingsPage = () => {
               <Link
                 key={tab}
                 className={`${
-                  activeTab === tab ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                  activeTab === tab ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
                 } transition-colors duration-200 ease-in-out`}
                 href={`/merchant/settings?tab=${tab}`}
               >

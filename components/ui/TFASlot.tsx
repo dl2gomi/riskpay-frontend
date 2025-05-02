@@ -165,7 +165,7 @@ const TFASlot = () => {
         subTitle={
           <div className="text-sm text-gray-600">
             Download the free{' '}
-            <a href="#" className="text-blue-600">
+            <a href="#" className="text-blue-500">
               Google authenticator
             </a>{' '}
             app, add a new account then scan this QR code to set up your account
@@ -191,7 +191,7 @@ const TFASlot = () => {
         subTitle={
           <div>
             Please enter your 6-digit authentication code from the{' '}
-            <a href="#" className="text-blue-600">
+            <a href="#" className="text-blue-500">
               Google Authenticator
             </a>{' '}
             app.

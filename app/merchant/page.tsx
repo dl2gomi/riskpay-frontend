@@ -271,7 +271,7 @@ const Dashboard = () => {
                     text={`${orderStatus?.paid?.percent ?? 0}%`}
                     strokeWidth={10}
                     styles={buildStyles({
-                      pathColor: '#035AAD',
+                      pathColor: '#006aff',
                       textColor: '#2E3033',
                       trailColor: '#E5E5FD',
                       textSize: '20px',

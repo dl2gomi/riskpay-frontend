@@ -147,7 +147,7 @@ const AddProductModal: React.FC<{
                   <div className="flex items-center justify-between">
                     <p className="font-semibold">Shipping</p>
                     <button
-                      className="px-3 py-0.5 bg-blue-600 hover:bg-blue-500 transition cursor-pointer text-white rounded-md font-medium"
+                      className="px-3 py-0.5 hover:bg-blue-600 bg-blue-500 transition cursor-pointer text-white rounded-md font-medium"
                       onClick={() => setShipModal(true)}
                     >
                       Add
@@ -254,7 +254,7 @@ const AddProductModal: React.FC<{
               >
                 Cancel
               </button>
-              <button className="px-6 py-2 bg-blue-600 hover:bg-blue-500 transition cursor-pointer text-white rounded-md font-medium">
+              <button className="px-6 py-2 hover:bg-blue-600 bg-blue-500 transition cursor-pointer text-white rounded-md font-medium">
                 Create Product
               </button>
             </div>

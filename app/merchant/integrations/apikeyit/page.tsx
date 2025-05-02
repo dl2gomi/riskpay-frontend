@@ -43,7 +43,7 @@ const ApiKeyIntegrationPage = () => {
           <div className="text-base font-semibold">{title ?? ''} API Integration Keys</div>
           <Link
             href="/merchant/help"
-            className="flex items-center gap-1 text-sm text-blue-600 font-medium cursor-pointer lg:justify-end"
+            className="flex items-center gap-1 text-sm text-blue-500 font-medium cursor-pointer lg:justify-end"
           >
             Learn more about API authentication <Image src={arrowRightIcon} alt="to" className="w-4 h-4" />
           </Link>
@@ -59,7 +59,7 @@ const ApiKeyIntegrationPage = () => {
               checked={!viewingTestData}
               onChange={() => setViewingTestData(!viewingTestData)}
               className={`${
-                viewingTestData ? 'bg-gray-200' : 'bg-blue-600'
+                viewingTestData ? 'bg-gray-200' : 'bg-blue-500'
               } relative inline-flex h-5 w-10 items-center rounded-full transition cursor-pointer`}
             >
               <span
@@ -118,7 +118,7 @@ const ApiKeyIntegrationPage = () => {
         </div>
 
         <div className="flex gap-2 pt-4">
-          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">
+          <button className="hover:bg-blue-600 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">
             Reset Publishable Key
           </button>
           <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">

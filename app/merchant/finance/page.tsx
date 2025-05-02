@@ -120,12 +120,12 @@ const FinancePage = () => {
         <>
           <Link
             href="/merchant/finance/accounts"
-            className="rounded-full bg-white hover:text-blue-600 cursor-pointer text-sm px-3 py-1.5 text-gray-700 transition-colors border border-gray-200 truncate"
+            className="rounded-full bg-white hover:text-blue-500 cursor-pointer text-sm px-3 py-1.5 text-gray-700 transition-colors border border-gray-200 truncate"
           >
             Manage Accounts
           </Link>
           <button
-            className="rounded-full bg-blue-600 hover:bg-blue-500 cursor-pointer text-sm px-3 py-1.5 text-white transition"
+            className="rounded-full hover:bg-blue-600 bg-blue-500 cursor-pointer text-sm px-3 py-1.5 text-white transition"
             onClick={() => setShowWithdrawModal(true)}
           >
             Withdraw
@@ -293,7 +293,7 @@ const FinancePage = () => {
                 &times;
               </span>
             </div>
-            <div className="flex justify-between items-center border-b-4 border-blue-600 py-1">
+            <div className="flex justify-between items-center border-b-4 border-blue-500 py-1">
               <div className="flex items-center text-sm gap-2">
                 <Image src={balanceIcon} alt="Balance" className="w-5 h-5" />
                 <span>Available Balance</span>
@@ -344,11 +344,11 @@ const FinancePage = () => {
                 After confirm, you concern you are requesting to deposit that amount to this bank account/wallet
               </div>
               <div className="grid grid-cols-2 gap-4 pt-6">
-                <button className="bg-blue-50 text-blue-600 font-semibold py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
+                <button className="bg-blue-50 text-blue-500 font-semibold py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
                   Cancel
                 </button>
                 <button
-                  className="bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-500 transition cursor-pointer"
+                  className="hover:bg-blue-600 text-white font-semibold py-2 rounded-md bg-blue-500 transition cursor-pointer"
                   onClick={() => {
                     // needs to be changed in integration with backend
                     setShowWithdrawModal(false);
@@ -400,11 +400,11 @@ const FinancePage = () => {
                 You can copy OTP code from your email to any inputs in the above.
               </div>
               <div className="grid grid-cols-2 gap-4 pt-6">
-                <button className="bg-blue-50 text-blue-600 font-semibold py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
+                <button className="bg-blue-50 text-blue-500 font-semibold py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
                   Back
                 </button>
                 <button
-                  className="bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-500 transition cursor-pointer"
+                  className="hover:bg-blue-600 text-white font-semibold py-2 rounded-md bg-blue-500 transition cursor-pointer"
                   onClick={() => {
                     // needs to be changed in integration with backend
                     setShowSuccessModal(true);
@@ -434,7 +434,7 @@ const FinancePage = () => {
             <div className="max-w-xl w-full space-y-4">
               <div className="grid grid-cols-1 gap-4 pt-6">
                 <button
-                  className="bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-500 transition cursor-pointer"
+                  className="hover:bg-blue-600 text-white font-semibold py-2 rounded-md bg-blue-500 transition cursor-pointer"
                   onClick={() => setShowSuccessModal(false)}
                 >
                   Done

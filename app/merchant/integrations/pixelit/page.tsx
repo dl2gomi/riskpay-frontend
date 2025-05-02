@@ -75,10 +75,10 @@ const PixelIntegrationPage = () => {
           </div>
 
           <div className="flex gap-4 pt-2">
-            <button className="bg-blue-50 text-blue-600 font-semibold px-12 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
+            <button className="bg-blue-50 text-blue-500 font-semibold px-12 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
               Cancel
             </button>
-            <button className="bg-blue-600 text-white font-semibold px-12 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
+            <button className="hover:bg-blue-600 text-white font-semibold px-12 py-2 rounded-md bg-blue-500 transition cursor-pointer">
               Create
             </button>
           </div>

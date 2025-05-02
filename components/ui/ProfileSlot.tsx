@@ -317,7 +317,7 @@ const ProfileSlot = () => {
               )}
             </div>
             <button
-              className={`bg-blue-600 hover:bg-blue-500 transition text-white rounded px-8 py-2 ${
+              className={`hover:bg-blue-600 bg-blue-500 transition text-white rounded px-8 py-2 ${
                 profilePostLoading ? 'cursor-not-allowed' : 'cursor-pointer'
               }`}
               onClick={() => sendProfilePostRequest()}
@@ -379,7 +379,7 @@ const ProfileSlot = () => {
               />
             </div>
             <button
-              className={`bg-blue-600 hover:bg-blue-500 transition text-white rounded px-8 py-2 ${
+              className={`hover:bg-blue-600 bg-blue-500 transition text-white rounded px-8 py-2 ${
                 passwordLoading ? 'cursor-not-allowed' : 'cursor-pointer'
               }`}
               disabled={passwordLoading || !password || !newPassword || !confirmPassword}
@@ -431,7 +431,7 @@ const ProfileSlot = () => {
               />
             </div>
             <button
-              className={`bg-blue-600 hover:bg-blue-500 transition text-white rounded px-8 py-2 ${
+              className={`hover:bg-blue-600 bg-blue-500 transition text-white rounded px-8 py-2 ${
                 mailLoading ? 'cursor-not-allowed' : 'cursor-pointer'
               }`}
               disabled={mailLoading || !email || !newEmail}

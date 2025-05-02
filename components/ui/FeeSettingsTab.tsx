@@ -17,7 +17,7 @@ const FeeCard: React.FC<{
 }> = ({ icon, title, subtitle, priceLabel, priceInfo }) => (
   <div className="grid grid-cols-1 lg:grid-cols-2 items-center border border-gray-500 rounded-lg p-5 hover:shadow-md transition">
     <div className="flex items-center gap-4 py-4 border-b lg:border-b-0 lg:border-r border-gray-500">
-      <Image src={icon} alt="icon" className="bg-blue-100 text-blue-600 w-10 h-10 rounded-lg text-xl" />
+      <Image src={icon} alt="icon" className="bg-blue-100 text-blue-500 w-10 h-10 rounded-lg text-xl" />
       <div>
         <h3 className="font-semibold text-lg">{title}</h3>
         <p className="text-sm text-gray-500">{subtitle}</p>

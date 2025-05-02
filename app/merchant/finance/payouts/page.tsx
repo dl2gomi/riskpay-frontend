@@ -74,7 +74,7 @@ const PayoutPage = () => {
     >
       {payoutLoading && (
         <div className="flex items-center justify-center flex-col p-6 bg-white rounded-lg space-y-6 h-[240px]">
-          <SpinnerCircular color="#0707DE" secondaryColor="#9999FF" />
+          <SpinnerCircular color="#006aff" secondaryColor="#66AAFF" />
           <div className="text-gray-600">Loading...</div>
         </div>
       )}

@@ -60,7 +60,7 @@ const AddShippingModal: React.FC<{
           </div>
         </div>
         <div className="grid grid-cols-1 gap-4 pt-6">
-          <button className="bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
+          <button className="hover:bg-blue-600 text-white font-semibold py-2 rounded-md bg-blue-500 transition cursor-pointer">
             Add
           </button>
         </div>

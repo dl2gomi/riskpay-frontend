@@ -115,7 +115,7 @@ const ProductsPage = () => {
           <div className="flex space-x-4 text-sm font-medium text-gray-900">
             <div
               className={`${
-                statusFilter === 'All' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'All' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('All')}
             >
@@ -123,7 +123,7 @@ const ProductsPage = () => {
             </div>
             <div
               className={`${
-                statusFilter === 'Active' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'Active' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('Active')}
             >
@@ -131,7 +131,7 @@ const ProductsPage = () => {
             </div>
             <div
               className={`${
-                statusFilter === 'Deactivated' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'Deactivated' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('Deactivated')}
             >
@@ -141,7 +141,7 @@ const ProductsPage = () => {
           <Menu as="div" className="relative inline-block text-left">
             <div>
               <MenuButton
-                className="flex items-center gap-2 bg-blue-600 text-white px-3 py-1.5 text-sm rounded-sm cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400"
+                className="flex items-center gap-2 hover:bg-blue-600 text-white px-3 py-1.5 text-sm rounded-sm cursor-pointer transition-colors duration-200 ease-in-out bg-blue-500"
                 onClick={(e) => {
                   e.stopPropagation();
                 }}

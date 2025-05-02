@@ -120,7 +120,7 @@ const Sidebar = () => {
             <div className="max-w-xl w-full space-y-4">
               <div className="grid grid-cols-2 gap-4 pt-6">
                 <button
-                  className="bg-blue-100 text-blue-600 font-semibold py-2 rounded-md hover:bg-blue-200 transition cursor-pointer"
+                  className="bg-blue-100 text-blue-500 font-semibold py-2 rounded-md hover:bg-blue-200 transition cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     setConfirmModal(false);
@@ -129,7 +129,7 @@ const Sidebar = () => {
                   Back
                 </button>
                 <button
-                  className="bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-500 transition cursor-pointer"
+                  className="hover:bg-blue-600 text-white font-semibold py-2 rounded-md bg-blue-500 transition cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     setConfirmModal(false);

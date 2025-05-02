@@ -92,7 +92,7 @@ const WebhookIntegrationPage = () => {
             Back
           </Link>
           <button
-            className="flex items-center gap-2 bg-blue-600 text-white text-sm px-4 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer"
+            className="flex items-center gap-2 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-md bg-blue-500 transition cursor-pointer"
             onClick={() => setShowModal(true)}
           >
             <PlusIcon className="w-4 h-4" />
@@ -193,7 +193,7 @@ const WebhookIntegrationPage = () => {
                             </MenuItem>
                             <MenuItem>
                               <button
-                                className="hover:bg-gray-100 hover:text-blue-500 text-blue-600 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                className="hover:bg-gray-100 hover:text-red-600 text-red-500 w-full px-4 py-2 text-left text-sm cursor-pointer"
                                 onClick={() => {}}
                               >
                                 Delete
@@ -399,10 +399,10 @@ const WebhookIntegrationPage = () => {
               </div>
 
               <div className="flex gap-4 pt-6 justify-center">
-                <button className="bg-blue-50 text-blue-600 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
+                <button className="bg-blue-50 text-blue-500 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
                   Cancel
                 </button>
-                <button className="bg-blue-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
+                <button className="hover:bg-blue-600 text-white font-semibold w-42 py-2 rounded-md bg-blue-500 transition cursor-pointer">
                   Save Webhook
                 </button>
               </div>

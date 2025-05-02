@@ -39,13 +39,13 @@ const TFACodeModal: React.FC<{
           )}
           <div className="grid grid-cols-2 gap-4 pt-6">
             <button
-              className="bg-blue-50 text-blue-600 font-semibold py-2 rounded-md hover:bg-blue-100  transition cursor-pointer"
+              className="bg-blue-50 text-blue-500 font-semibold py-2 rounded-md hover:bg-blue-100  transition cursor-pointer"
               onClick={onClose}
             >
               Back
             </button>
             <button
-              className={`bg-blue-600 hover:bg-blue-500 transition font-semibold text-white flex justify-center rounded px-8 py-2 cursor-pointer`}
+              className={`hover:bg-blue-600 bg-blue-500 transition font-semibold text-white flex justify-center rounded px-8 py-2 cursor-pointer`}
               onClick={() => onSend()}
             >
               Continue

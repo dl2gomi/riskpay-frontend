@@ -81,7 +81,7 @@ const ProductDetailPage = () => {
         </div>
         {prLoading && (
           <div className="flex items-center justify-center flex-col p-6 bg-white rounded-lg space-y-6 h-[240px]">
-            <SpinnerCircular color="#0707DE" secondaryColor="#9999FF" />
+            <SpinnerCircular color="#006aff" secondaryColor="#66AAFF" />
             <div className="text-gray-600">Loading...</div>
           </div>
         )}
@@ -100,7 +100,7 @@ const ProductDetailPage = () => {
                     {prDetail.url}
                   </Link>
                   <button
-                    className="bg-blue-600 hover:bg-blue-500 text-white px-4 h-7 rounded-lg text-sm cursor-pointer"
+                    className="hover:bg-blue-600 bg-blue-500 text-white px-4 h-7 rounded-lg text-sm cursor-pointer"
                     onClick={async () => {
                       try {
                         await navigator.clipboard.writeText(prDetail.url);

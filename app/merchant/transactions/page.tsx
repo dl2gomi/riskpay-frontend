@@ -122,7 +122,7 @@ const TransactionPage = () => {
           <div className="flex space-x-4 text-sm font-medium text-gray-900">
             <div
               className={`${
-                statusFilter === 'All' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'All' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('All')}
             >
@@ -130,7 +130,7 @@ const TransactionPage = () => {
             </div>
             <div
               className={`${
-                statusFilter === 'Success' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'Success' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('Success')}
             >
@@ -138,7 +138,7 @@ const TransactionPage = () => {
             </div>
             <div
               className={`${
-                statusFilter === 'Failed' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'Failed' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('Failed')}
             >
@@ -146,7 +146,7 @@ const TransactionPage = () => {
             </div>
             <div
               className={`${
-                statusFilter === 'Pending' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'Pending' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('Pending')}
             >
@@ -154,7 +154,7 @@ const TransactionPage = () => {
             </div>
             <div
               className={`${
-                statusFilter === 'Chargeback' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'Chargeback' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('Chargeback')}
             >
@@ -162,14 +162,14 @@ const TransactionPage = () => {
             </div>
             <div
               className={`${
-                statusFilter === 'Refunded' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                statusFilter === 'Refunded' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out`}
               onClick={() => selectStatusFilter('Refunded')}
             >
               Refunded
             </div>
           </div>
-          {/* <button className="flex items-center gap-2 bg-blue-600 text-white px-3 py-1 text-sm rounded-full cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400">
+          {/* <button className="flex items-center gap-2 hover:bg-blue-600 text-white px-3 py-1 text-sm rounded-full cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400">
             <Image src={excelIcon} alt="Export" className="h-4 w-4" />
             Export
           </button> */}

@@ -106,7 +106,7 @@ const AccountsPage = () => {
           <div className="flex space-x-4 text-sm font-medium text-gray-900">
             <div
               className={`${
-                typeFilter === 'bank' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                typeFilter === 'bank' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out truncate`}
               onClick={() => setTypeFilter('bank')}
             >
@@ -114,7 +114,7 @@ const AccountsPage = () => {
             </div>
             <div
               className={`${
-                typeFilter === 'crypto' ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
+                typeFilter === 'crypto' ? 'text-blue-500' : 'cursor-pointer hover:text-gray-500'
               } transition-colors duration-200 ease-in-out truncate`}
               onClick={() => setTypeFilter('crypto')}
             >
@@ -123,7 +123,7 @@ const AccountsPage = () => {
           </div>
           {typeFilter === 'bank' && (
             <button
-              className="flex items-center gap-2 bg-blue-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400 truncate"
+              className="flex items-center gap-2 hover:bg-blue-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400 truncate"
               onClick={() => {
                 setCurrentBank({});
                 setShowBankModal(true);
@@ -135,7 +135,7 @@ const AccountsPage = () => {
           )}
           {typeFilter === 'crypto' && (
             <button
-              className="flex items-center gap-2 bg-blue-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400 truncate"
+              className="flex items-center gap-2 hover:bg-blue-600 text-white px-3 py-2 ml-2 text-sm rounded-md cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-400 truncate"
               onClick={() => setShowCryptoModal(true)}
             >
               <PlusIcon className="w-4 h-4" />
@@ -419,10 +419,10 @@ const AccountsPage = () => {
                 </label>
               </div>
               <div className="flex gap-4 pt-6 justify-center">
-                <button className="bg-blue-50 text-blue-600 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
+                <button className="bg-blue-50 text-blue-500 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
                   Cancel
                 </button>
-                <button className="bg-blue-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
+                <button className="hover:bg-blue-600 text-white font-semibold w-42 py-2 rounded-md bg-blue-500 transition cursor-pointer">
                   Save
                 </button>
               </div>
@@ -557,10 +557,10 @@ const AccountsPage = () => {
                 </label>
               </div>
               <div className="flex gap-4 pt-6 justify-center">
-                <button className="bg-blue-50 text-blue-600 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
+                <button className="bg-blue-50 text-blue-500 font-semibold w-42 py-2 rounded-md hover:bg-blue-100  transition cursor-pointer">
                   Cancel
                 </button>
-                <button className="bg-blue-600 text-white font-semibold w-42 py-2 rounded-md hover:bg-blue-500 transition cursor-pointer">
+                <button className="hover:bg-blue-600 text-white font-semibold w-42 py-2 rounded-md bg-blue-500 transition cursor-pointer">
                   Save
                 </button>
               </div>

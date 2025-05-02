@@ -44,7 +44,7 @@ const DeactivateSlot = () => {
       <p className="text-gray-600 mb-2 text-sm">
         We value your feedback, but please note that we aren’t able to respond to comments about your account submitted
         in this form. If you have a question or request about your account that requires attention, please contact us{' '}
-        <Link href="/contact-us" className="text-blue-600 underline">
+        <Link href="/contact-us" className="text-blue-500 underline">
           here
         </Link>
         .
@@ -58,7 +58,7 @@ const DeactivateSlot = () => {
         className="w-full p-3 border border-gray-300 text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"
       />
 
-      <button className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-500 transition cursor-pointer px-8">
+      <button className="hover:bg-blue-600 text-white py-2 rounded-md bg-blue-500 transition cursor-pointer px-8">
         Deactivate Account
       </button>
     </div>
