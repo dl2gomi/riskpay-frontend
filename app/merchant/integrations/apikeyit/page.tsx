@@ -43,7 +43,7 @@ const ApiKeyIntegrationPage = () => {
           <div className="text-base font-semibold">{title ?? ''} API Integration Keys</div>
           <Link
             href="/merchant/help"
-            className="flex items-center gap-1 text-sm text-[#DE0707] font-medium cursor-pointer lg:justify-end"
+            className="flex items-center gap-1 text-sm text-blue-600 font-medium cursor-pointer lg:justify-end"
           >
             Learn more about API authentication <Image src={arrowRightIcon} alt="to" className="w-4 h-4" />
           </Link>
@@ -118,7 +118,7 @@ const ApiKeyIntegrationPage = () => {
         </div>
 
         <div className="flex gap-2 pt-4">
-          <button className="bg-[#DE0707] hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">
+          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">
             Reset Publishable Key
           </button>
           <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer">
