@@ -1,9 +1,20 @@
 'use client';
 
-import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
-import { CheckCircle, ChevronDownIcon, Upload, X } from 'lucide-react';
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from '@headlessui/react';
+import { CheckCircle, ChevronDownIcon, MoreHorizontal, Upload, X } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import AddShippingModal from './AddShippingModal';
+import { Product } from '@/types';
 
 const money = [
   {
@@ -22,14 +33,33 @@ const formatter = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 2,
 });
 
+const shippingList = [
+  {
+    id: '424',
+    name: 'Free Shipping',
+    maxDay: 2,
+    minDay: 1,
+    fee: 20.2,
+  },
+  {
+    id: '4234',
+    name: 'Free FEDEX Shipping',
+    maxDay: 5,
+    minDay: 3,
+    fee: 10.22,
+  },
+];
+
 const AddProductModal: React.FC<{
   open: boolean;
   onClose: () => void;
   type: 'Physical' | 'Digital';
-}> = ({ open, onClose, type }) => {
+  product?: Product;
+}> = ({ open, onClose, type, product }) => {
   const [moneyType, setMoneyType] = useState('USD');
   const [value, setValue] = useState(0);
   const [quantity, setQuantity] = useState(0);
+  const [shipModal, setShipModal] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -37,8 +67,8 @@ const AddProductModal: React.FC<{
     fileInputRef.current?.click();
   };
 
-  const handleFileChange = (event: any) => {
-    const file = event.target?.files?.[0];
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
       console.log('Selected file:', file);
       // You can add preview logic here if needed
@@ -90,17 +120,89 @@ const AddProductModal: React.FC<{
               <input type="file" accept="image/*" ref={fileInputRef} onChange={handleFileChange} className="hidden" />
             </div>
 
-            <div className="space-y-2">
-              <p className="font-semibold text-lg">More Option</p>
-              <div className="grid grid-cols-2 gap-4">
-                <button className="border px-4 py-2 rounded-md font-medium border-gray-300 hover:bg-gray-100 transition cursor-pointer">
-                  Recurrent
-                </button>
-                <button className="border px-4 py-2 rounded-md font-medium border-gray-300 hover:bg-gray-100 transition cursor-pointer">
-                  One Time
-                </button>
+            {type === 'Digital' && (
+              <div className="space-y-2">
+                <p className="font-semibold">More Option</p>
+                <div className="grid grid-cols-2 gap-4">
+                  <button className="border px-4 py-2 rounded-md font-medium border-gray-300 hover:bg-gray-100 transition cursor-pointer">
+                    Recurrent
+                  </button>
+                  <button className="border px-4 py-2 rounded-md font-medium border-gray-300 hover:bg-gray-100 transition cursor-pointer">
+                    One Time
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
+
+            {type === 'Physical' && (
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <p className="font-semibold">Shipping</p>
+                  <button
+                    className="px-3 py-0.5 bg-blue-600 hover:bg-blue-500 transition cursor-pointer text-white rounded-md font-medium"
+                    onClick={() => setShipModal(true)}
+                  >
+                    Add
+                  </button>
+                </div>
+                <div className="w-full">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-gray-300 text-gray-700 text-left bg-gray-200">
+                        <th className="py-2 max-w-16 w-16 pl-2">Name</th>
+                        <th className="py-2">Time</th>
+                        <th className="py-2">Price</th>
+                        <th className="py-2"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {shippingList.map((s, i) => (
+                        <tr key={i} className="border-b border-b-gray-200">
+                          <td className="py-1 truncate px-2">{s.name}</td>
+                          <td className="py-1 truncate px-2">
+                            {s.minDay}-{s.maxDay} days
+                          </td>
+                          <td className="py-1 truncate px-2">USD {formatter.format(s.fee)}</td>
+                          <td className="py-1 text-gray-500 ">
+                            <Menu as="div" className="relative inline-block text-left">
+                              <div>
+                                <MenuButton className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-200 ease-in-out cursor-pointer">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </MenuButton>
+                              </div>
+                              <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white ring-1 ring-gray-300 focus:outline-none cursor-pointer">
+                                <div className="py-1">
+                                  <MenuItem>
+                                    <button
+                                      className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                      }}
+                                    >
+                                      Edit
+                                    </button>
+                                  </MenuItem>
+                                  <MenuItem>
+                                    <button
+                                      className="hover:bg-gray-100 hover:text-black text-gray-700 w-full px-4 py-2 text-left text-sm cursor-pointer"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                      }}
+                                    >
+                                      Remove
+                                    </button>
+                                  </MenuItem>
+                                </div>
+                              </MenuItems>
+                            </Menu>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
 
             <div className="space-y-2">
               <div className="font-bold">Value (required)</div>
@@ -174,6 +276,7 @@ const AddProductModal: React.FC<{
           </div>
         </div>
       </div>
+      <AddShippingModal open={shipModal} onClose={() => setShipModal(false)} id={product ? product.id : undefined} />
     </div>,
     document.body
   );

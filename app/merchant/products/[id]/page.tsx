@@ -15,6 +15,7 @@ import { SpinnerCircular } from 'spinners-react';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 
 import backIcon from '@/assets/images/icons/back.svg';
+import { AddProductModal } from '@/components/ui';
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'decimal',
@@ -25,6 +26,7 @@ const formatter = new Intl.NumberFormat('en-US', {
 const ProductDetailPage = () => {
   const { id } = useParams();
   const [prDetail, setPrDetail] = useState<ProductDetail | null>(null);
+  const [editModal, setEditModal] = useState(false);
 
   const {
     response: prResponse,
@@ -113,7 +115,10 @@ const ProductDetailPage = () => {
                 </div>
               </div>
               <div className="flex items-center justify-end gap-3">
-                <button className="border border-gray-100 shadow-lg px-4 py-1 font-semibold rounded-lg text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                <button
+                  className="border border-gray-100 shadow-lg px-4 py-1 font-semibold rounded-lg text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => setEditModal(true)}
+                >
                   Edit Product
                 </button>
                 <Menu as="div" className="relative inline-block text-left">
@@ -251,6 +256,7 @@ const ProductDetailPage = () => {
           </div>
         )}
       </div>
+      <AddProductModal open={editModal} onClose={() => setEditModal(false)} type={prDetail?.type ?? 'Digital'} />
     </DashLayout>
   );
 };
