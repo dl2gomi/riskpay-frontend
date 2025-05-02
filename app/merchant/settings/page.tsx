@@ -4,7 +4,7 @@ import { DashLayout } from '@/components/layouts';
 import { MoreHorizontal } from 'lucide-react';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 import { Pagination } from '@/components/widgets';
 import { ITEMS_PER_PAGE } from '@/consts/vars';
@@ -36,7 +36,7 @@ const tabs: Record<'business' | 'security' | 'fee', string> = {
   fee: 'Account Fees',
 };
 
-const SettingsPage = () => {
+const RawSettingsPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -83,4 +83,10 @@ const SettingsPage = () => {
   );
 };
 
-export default SettingsPage;
+export default function SettingsPage() {
+  return (
+    <Suspense>
+      <RawSettingsPage />
+    </Suspense>
+  );
+}
