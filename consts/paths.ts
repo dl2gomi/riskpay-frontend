@@ -10,6 +10,10 @@ export const notiUrl = `${apiBaseUrl}/notifications`;
 export const transactionsUrl = `${apiBaseUrl}/transactions`;
 export const transactionDetailUrl = `${apiBaseUrl}/transactions`;
 
+// products
+export const productsUrl = `${apiBaseUrl}/products`;
+export const productDetailUrl = `${apiBaseUrl}/products`;
+
 // integrations
 export const webhooksUrl = `${apiBaseUrl}/webhooks`;
 
