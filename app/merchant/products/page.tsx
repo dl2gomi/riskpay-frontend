@@ -201,11 +201,7 @@ const ProductsPage = () => {
           <table className="table-auto w-full">
             <thead className="bg-gray-100 text-xs font-semibold text-gray-700 mb-2">
               <tr className="h-12">
-                <th className="p-2 text-left cursor-pointer">
-                  <div className="flex items-center">
-                    <span>Link URL</span>
-                  </div>
-                </th>
+                <th className="p-2 text-left cursor-pointer w-14"></th>
                 <th className="p-2 text-left cursor-pointer">
                   <div className="flex items-center">
                     <span>Name</span>
@@ -276,9 +272,8 @@ const ProductsPage = () => {
                       router.push(`/merchant/products/${p.id}`); // this needs to be changed with the local storage key
                     }}
                   >
-                    <td className="flex items-center p-2 whitespace-nowrap border-b border-b-gray-200 gap-2">
+                    <td className="flex items-center p-2 whitespace-nowrap border-b w-14 border-b-gray-200 gap-2">
                       <Image src={p.image} alt="Product" width={40} height={40} className="w-10 h-10" />
-                      <div className="max-w-lg truncate">{p.url}</div>
                     </td>
                     <td className="p-2 whitespace-nowrap border-b border-b-gray-200">{p.name}</td>
                     <td className="p-2 whitespace-nowrap border-b border-b-gray-200">
