@@ -114,9 +114,9 @@ const DashLayout: React.FC<{ children: ReactNode; titleArea: ReactNode; tools?: 
                 </div>
               )}
             </div>
-            <Link className="md:flex items-center gap-2 text-sm hidden cursor-pointer" href="/merchant/settings">
+            <Link className="flex items-center gap-2 text-sm cursor-pointer" href="/merchant/settings?tab=security">
               <Image src={userInfo.avatar} alt="User Avatar" width={32} height={32} className="rounded-full" />
-              <div>
+              <div className="md:flex hidden">
                 <p className="font-medium truncate">{userInfo.name}</p>
                 {/* <p className="text-gray-500 truncate">{userInfo.role}</p> */}
               </div>

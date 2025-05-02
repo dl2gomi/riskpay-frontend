@@ -19,9 +19,10 @@ import excelIcon from '@/assets/images/icons/excel-export.svg';
 import orderNormalIcon from '@/assets/images/icons/order-normal.svg';
 import orderAscIcon from '@/assets/images/icons/order-asc.svg';
 import orderDescIcon from '@/assets/images/icons/order-desc.svg';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { txStatusStyles } from '@/consts/styles';
 import { BusinessSettingsTab, FeeSettingsTab, ProfileSettingsTab } from '@/components/ui';
+import Link from 'next/link';
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'decimal',
@@ -37,8 +38,16 @@ const tabs: Record<'business' | 'security' | 'fee', string> = {
 
 const SettingsPage = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [activeTab, setActiveTab] = useState<'business' | 'security' | 'fee'>('business');
+
+  useEffect(() => {
+    const tab = searchParams.get('tab');
+    if (tab && ['business', 'security', 'fee'].includes(tab)) {
+      setActiveTab(tab as 'business' | 'security' | 'fee');
+    }
+  }, [searchParams]);
 
   return (
     <DashLayout
@@ -52,15 +61,15 @@ const SettingsPage = () => {
         <div className="flex items-center justify-between border-b border-b-gray-200 mx-2 mb-3 pb-2">
           <div className="flex space-x-4 text-sm font-medium text-gray-900">
             {['business', 'security', 'fee'].map((tab) => (
-              <div
+              <Link
                 key={tab}
                 className={`${
                   activeTab === tab ? 'text-blue-600' : 'cursor-pointer hover:text-gray-500'
                 } transition-colors duration-200 ease-in-out`}
-                onClick={() => setActiveTab(tab as 'business' | 'security' | 'fee')}
+                href={`/merchant/settings?tab=${tab}`}
               >
                 {tabs[tab as 'business' | 'security' | 'fee']}
-              </div>
+              </Link>
             ))}
           </div>
         </div>
