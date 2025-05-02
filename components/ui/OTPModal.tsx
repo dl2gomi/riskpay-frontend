@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { SpinLoading } from 'respinner';
 
@@ -10,7 +10,7 @@ const OTPModal: React.FC<{
   onClose: () => void;
   onSend: (arg0: string) => Promise<void>;
   title: string;
-  subTitle: string;
+  subTitle: string | ReactNode;
 }> = ({ open, sending, onClose, onSend, title, subTitle }) => {
   const [otp, setOtp] = useState('');
 
@@ -27,7 +27,7 @@ const OTPModal: React.FC<{
       }}
     >
       <div className="bg-white p-6 rounded-lg w-full max-w-md space-y-4">
-        <div className="flex text-center items-center pb-4 font-semibold text-xl">{title}</div>
+        <div className="flex text-center items-center justify-center pb-4 font-semibold text-xl">{title}</div>
         <div className="flex items-center justify-center text-center text-gray-500 text-sm">{subTitle}</div>
         <div className="max-w-xl w-full space-y-4">
           <div className="flex items-center justify-center text-center font-semibold text-gray-900 text-xl">OTP</div>

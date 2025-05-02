@@ -3,3 +3,4 @@ export { default as FeeSettingsTab } from './FeeSettingsTab';
 export { default as ProfileSettingsTab } from './ProfileSettingsTab';
 export { default as OTPModal } from './OTPModal';
 export { default as ConfirmModal } from './ConfirmModal';
+export { default as TFACodeModal } from './TFACodeModal';

@@ -25,3 +25,5 @@ export const profileOTPUrl = `${apiBaseUrl}/settings/profile/otp`;
 export const passwordChangeUrl = `${apiBaseUrl}/settings/profile/changepassword`;
 export const emailChangeUrl = `${apiBaseUrl}/settings/profile/changemail`;
 export const mailOTPUrl = `${apiBaseUrl}/settings/profile/otpmail`;
+export const authenticatorCodeUrl = `${apiBaseUrl}/settings/auth/app/code`;
+export const authenticatorVerifyUrl = `${apiBaseUrl}/settings/auth/app/verify`;
