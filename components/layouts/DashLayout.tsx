@@ -71,7 +71,7 @@ const DashLayout: React.FC<{ children: ReactNode; titleArea: ReactNode; tools?: 
       {/* Sidebar */}
       <SidebarMerchant />
       {/* Main Content */}
-      <main className="flex-1 p-4 md:p-8 space-y-6 md:ml-64 transform transition-transform duration-300 ease-in-out max-w-full md:max-w-[calc(100%-16rem)]">
+      <main className="flex-1 p-4 md:p-8 transition-all space-y-6 md:ml-64 transform duration-300 ease-in-out max-w-full md:max-w-[calc(100%-16rem)]">
         <div className="flex justify-between items-center ml-12 md:ml-0 h-10">
           <div>{titleArea}</div>
           <div className="flex items-center gap-4">
