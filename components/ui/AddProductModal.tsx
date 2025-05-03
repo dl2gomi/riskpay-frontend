@@ -11,7 +11,7 @@ import {
   MenuItems,
 } from '@headlessui/react';
 import { CheckCircle, ChevronDownIcon, MoreHorizontal, Upload, X } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import AddShippingModal from './AddShippingModal';
 import { Product } from '@/types';
@@ -56,6 +56,8 @@ const AddProductModal: React.FC<{
   type: 'Physical' | 'Digital';
   product?: Product;
 }> = ({ open, onClose, type, product }) => {
+  const [mounted, setMounted] = useState(false);
+
   const [moneyType, setMoneyType] = useState('USD');
   const [value, setValue] = useState(0);
   const [quantity, setQuantity] = useState(0);
@@ -74,7 +76,12 @@ const AddProductModal: React.FC<{
     }
   };
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // if (!open) return null;
+  if (!mounted) return null;
 
   return createPortal(
     <div
