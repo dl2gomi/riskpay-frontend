@@ -78,13 +78,13 @@ const AddProductModal: React.FC<{
 
   return createPortal(
     <div
-      className={`fixed inset-0 z-50 flex justify-end transition-all duration-600 ${
-        open ? 'translate-x-0' : 'translate-x-full'
-      }`}
+      className={`fixed inset-0 z-50 flex justify-end bg-[#0008] ${open ? 'translate-x-0' : 'translate-x-full'}`}
       onClick={onClose}
     >
       <div
-        className="w-full max-w-5xl h-full bg-white shadow-xl p-4 flex flex-col overflow-hidden"
+        className={`w-full max-w-5xl h-full bg-white shadow-xl p-4 flex flex-col overflow-hidden duration-700 transition ${
+          open ? 'translate-x-0' : 'translate-x-full'
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
