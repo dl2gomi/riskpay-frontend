@@ -71,20 +71,24 @@ const AddProductModal: React.FC<{
     const file = event.target.files?.[0];
     if (file) {
       console.log('Selected file:', file);
-      // You can add preview logic here if needed
     }
   };
 
-  if (!open) return null;
+  // if (!open) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0008]" onClick={onClose}>
+    <div
+      className={`fixed inset-0 z-50 flex justify-end transition-all duration-600 ${
+        open ? 'translate-x-0' : 'translate-x-full'
+      }`}
+      onClick={onClose}
+    >
       <div
-        className="flex flex-col gap-4 bg-white rounded-xl p-4 w-full max-w-5xl shadow-xl relative max-h-[100vh]"
+        className="w-full max-w-5xl h-full bg-white shadow-xl p-4 flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-gray-300 m-2 pb-2 mb-0">
+        <div className="flex items-center justify-between border-b border-gray-300 mb-4 pb-2 mx-2">
           <div className="text-lg font-bold">Add Product</div>
           <button className="rounded-full hover:bg-gray-100 transition p-2 cursor-pointer" onClick={onClose}>
             <X className="w-4 h-4" />
@@ -92,10 +96,10 @@ const AddProductModal: React.FC<{
         </div>
 
         {/* Body */}
-        <div className="flex-1 flex gap-6 min-h-0 overflow-hidden">
+        <div className="flex-1 flex flex-row gap-6 overflow-hidden mr-2">
           {/* Left: Form */}
-          <div className="flex-1 flex flex-col min-h-0 text-sm relative ">
-            <div className="flex-1 space-y-6 overflow-y-auto px-2 pb-2">
+          <div className="flex-1 flex flex-col min-h-0 text-sm overflow-y-auto px-2">
+            <div className="flex-1 space-y-6">
               <div className="space-y-1">
                 <div className="font-semibold">Name (required)</div>
                 <div className="text-gray-600">Name of the product or service, visible to customers.</div>
@@ -216,7 +220,7 @@ const AddProductModal: React.FC<{
                     value={value}
                     onChange={(e) => setValue(isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value))}
                   />
-                  <div className="absolute top-[9] left-3 font-semibold">
+                  <div className="absolute left-3 font-semibold">
                     {money.find((e) => e.name === moneyType)?.prefix ?? '$'}
                   </div>
                   <Listbox value={moneyType} onChange={setMoneyType}>
@@ -247,7 +251,7 @@ const AddProductModal: React.FC<{
             </div>
 
             {/* Footer buttons pinned */}
-            <div className="sticky bottom-0 pt-4 bg-white flex gap-4 border-t border-gray-300 mt-0 mx-2 mb-2">
+            <div className="sticky bottom-0 pt-4 bg-white flex gap-4 border-t border-gray-300 mt-0">
               <button
                 className="px-6 py-2 bg-gray-100 rounded-md font-medium cursor-pointer hover:bg-gray-200 border-gray-200 border"
                 onClick={onClose}
@@ -261,7 +265,7 @@ const AddProductModal: React.FC<{
           </div>
 
           {/* Right: Preview */}
-          <div className="w-100 bg-gray-100 p-6 rounded-lg space-y-4 text-sm hidden md:block overflow-y-auto max-h-full">
+          <div className="w-[320px] bg-gray-100 p-6 rounded-lg space-y-4 text-sm overflow-y-auto hidden md:block">
             <h3 className="font-semibold text-lg">Preview</h3>
             <p className="text-sm text-gray-600">Estimate totals based on pricing model, unit quantity, and tax</p>
             <div className="space-y-1">
