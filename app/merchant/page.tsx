@@ -199,8 +199,8 @@ const Dashboard = () => {
               <AreaChart data={salesData}>
                 <defs>
                   <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#4444ef" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="#4444ef" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#006AFF" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="#006AFF" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="month" stroke="#9FA6B2" tickLine={false} tick={{ fontSize: 12 }} />
@@ -214,7 +214,7 @@ const Dashboard = () => {
                 />
                 <CartesianGrid stroke="#D2D6DC33" vertical={false} />
                 <Tooltip content={<CustomTooltip />} />
-                <Area type="monotone" dataKey="value" stroke="#4444ef" fillOpacity={1} fill="url(#colorSales)" />
+                <Area type="monotone" dataKey="value" stroke="#006AFF" fillOpacity={1} fill="url(#colorSales)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
