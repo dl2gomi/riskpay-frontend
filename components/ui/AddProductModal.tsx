@@ -105,8 +105,8 @@ const AddProductModal: React.FC<{
         {/* Body */}
         <div className="flex-1 flex flex-row gap-6 overflow-hidden mr-2">
           {/* Left: Form */}
-          <div className="flex-1 flex flex-col min-h-0 text-sm overflow-y-auto px-2">
-            <div className="flex-1 space-y-6">
+          <div className="flex-1 flex flex-col min-h-0 text-sm  px-2">
+            <div className="flex-1 space-y-6 overflow-y-auto">
               <div className="space-y-1">
                 <div className="font-semibold">Name (required)</div>
                 <div className="text-gray-600">Name of the product or service, visible to customers.</div>
